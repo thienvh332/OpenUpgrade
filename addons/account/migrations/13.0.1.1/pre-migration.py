@@ -34,7 +34,6 @@ _column_renames = {
 
 _field_renames = [
     ('account.move', 'account_move', 'amount', 'amount_total'),
-    ('account.move', 'account_move', 'reverse_entry_id', 'reversed_entry_id'),
 ]
 
 _field_sale_renames = [
@@ -340,6 +339,7 @@ def migrate(env, version):
     fill_account_move_line(env)
     create_res_partner_ranks(env)
     delete_fk_constraints(env)
+    openupgrade.lift_constraints(env.cr, "account_move", "reverse_entry_id")
     fill_account_move_commercial_partner_id(env)
     set_account_move_currency_id_required(env)
     add_helper_invoice_move_rel(env)
