@@ -4,6 +4,7 @@ to help the matching process
 
 # Renamed modules is a mapping from old module name to new module name
 renamed_modules = {
+    "account_accountant": "accountant",
     # odoo
     # odoo/enterprise
     # OCA/...
