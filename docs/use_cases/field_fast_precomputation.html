@@ -7,7 +7,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Field Fast Precomputation &mdash; OpenUpgrade 16.0 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
 
   
@@ -122,7 +122,7 @@ associated with each element.</p>
 <h2>Source Code Differences<a class="headerlink" href="#source-code-differences" title="Link to this heading"></a></h2>
 <section id="version-14-0">
 <h3>Version 14.0<a class="headerlink" href="#version-14-0" title="Link to this heading"></a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ProductTemplateAttributeLine</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">ProductTemplateAttributeLine</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
     <span class="n">_name</span> <span class="o">=</span> <span class="s2">&quot;product.template.attribute.line&quot;</span>
 
     <span class="n">value_ids</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Many2many</span><span class="p">(</span>
@@ -135,7 +135,7 @@ associated with each element.</p>
 </section>
 <section id="version-15-0">
 <h3>Version 15.0<a class="headerlink" href="#version-15-0" title="Link to this heading"></a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ProductTemplateAttributeLine</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">ProductTemplateAttributeLine</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
     <span class="n">_name</span> <span class="o">=</span> <span class="s2">&quot;product.template.attribute.line&quot;</span>
 
     <span class="n">value_ids</span> <span class="o">=</span> <span class="n">fields</span><span class="o">.</span><span class="n">Many2many</span><span class="p">(</span>
@@ -148,7 +148,7 @@ associated with each element.</p>
     <span class="p">)</span>
 
 <span class="nd">@api</span><span class="o">.</span><span class="n">depends</span><span class="p">(</span><span class="s2">&quot;value_ids&quot;</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">_compute_value_count</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_compute_value_count</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">:</span>
         <span class="n">record</span><span class="o">.</span><span class="n">value_count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">record</span><span class="o">.</span><span class="n">value_ids</span><span class="p">)</span>
 </pre></div>
@@ -196,9 +196,9 @@ and the power and the configuration of the server that is performing the migrati
 <section id="write-migration-script">
 <h3>Write migration Script<a class="headerlink" href="#write-migration-script" title="Link to this heading"></a></h3>
 <p>in the <code class="docutils literal notranslate"><span class="pre">pre-migration.py</span></code> script add:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">openupgradelib</span> <span class="kn">import</span> <span class="n">openupgrade</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">openupgradelib</span><span class="w"> </span><span class="kn">import</span> <span class="n">openupgrade</span>
 
-<span class="k">def</span> <span class="nf">compute_product_template_attribute_line_value_count</span><span class="p">(</span><span class="n">env</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">compute_product_template_attribute_line_value_count</span><span class="p">(</span><span class="n">env</span><span class="p">):</span>
     <span class="n">openupgrade</span><span class="o">.</span><span class="n">add_fields</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="p">[(</span>
         <span class="s2">&quot;value_count&quot;</span><span class="p">,</span>                      <span class="c1"># Field name</span>
         <span class="s2">&quot;product.template.attribute.line&quot;</span><span class="p">,</span>  <span class="c1"># Model name</span>
@@ -221,7 +221,7 @@ and the power and the configuration of the server that is performing the migrati
     <span class="p">)</span>
 
 <span class="nd">@openupgrade</span><span class="o">.</span><span class="n">migrate</span><span class="p">()</span>
-<span class="k">def</span> <span class="nf">migrate</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">version</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">migrate</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">version</span><span class="p">):</span>
     <span class="n">compute_product_template_attribute_line_value_count</span><span class="p">(</span><span class="n">env</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -256,7 +256,7 @@ if he faces this problem.</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright 2012-2021, Odoo Community Association (OCA) / The OpenUpgrade developers.
-      <span class="lastupdated">Last updated on Dec 31, 2024.
+      <span class="lastupdated">Last updated on Jan 22, 2025.
       </span></p>
   </div>
 

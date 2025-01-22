@@ -7,7 +7,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>XML-ID Renaming &mdash; OpenUpgrade 16.0 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
 
   
@@ -239,7 +239,7 @@ NEW ir.actions.act_window.view: crm.crm_lead_opportunities_view_form
 <section id="write-migration-script">
 <h3>Write migration Script<a class="headerlink" href="#write-migration-script" title="Link to this heading"></a></h3>
 <p>in the <code class="docutils literal notranslate"><span class="pre">pre-migration.py</span></code> script add:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">openupgradelib</span> <span class="kn">import</span> <span class="n">openupgrade</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">openupgradelib</span><span class="w"> </span><span class="kn">import</span> <span class="n">openupgrade</span>
 
 
 <span class="n">_xml_ids_renames</span> <span class="o">=</span> <span class="p">[</span>
@@ -248,7 +248,7 @@ NEW ir.actions.act_window.view: crm.crm_lead_opportunities_view_form
 <span class="p">]</span>
 
 <span class="nd">@openupgrade</span><span class="o">.</span><span class="n">migrate</span><span class="p">()</span>
-<span class="k">def</span> <span class="nf">migrate</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">version</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">migrate</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">version</span><span class="p">):</span>
     <span class="n">openupgrade</span><span class="o">.</span><span class="n">rename_xmlids</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">cr</span><span class="p">,</span> <span class="n">_xml_ids_renames</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -305,7 +305,7 @@ that indicates the merge of the module. At that step,
 
   <div role="contentinfo">
     <p>&#169; Copyright 2012-2021, Odoo Community Association (OCA) / The OpenUpgrade developers.
-      <span class="lastupdated">Last updated on Dec 31, 2024.
+      <span class="lastupdated">Last updated on Jan 22, 2025.
       </span></p>
   </div>
 

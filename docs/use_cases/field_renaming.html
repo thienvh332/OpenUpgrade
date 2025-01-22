@@ -7,7 +7,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Field Renaming &mdash; OpenUpgrade 16.0 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
 
   
@@ -128,7 +128,7 @@ mail         / mail.activity.type       / default_note (html)           : NEW
 <h2>Source Code Differences<a class="headerlink" href="#source-code-differences" title="Link to this heading"></a></h2>
 <section id="version-14-0">
 <h3>Version 14.0<a class="headerlink" href="#version-14-0" title="Link to this heading"></a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MailActivityType</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">MailActivityType</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
 
     <span class="n">_name</span> <span class="o">=</span> <span class="s1">&#39;mail.activity.type&#39;</span>
 
@@ -142,7 +142,7 @@ mail         / mail.activity.type       / default_note (html)           : NEW
 </section>
 <section id="version-15-0">
 <h3>Version 15.0<a class="headerlink" href="#version-15-0" title="Link to this heading"></a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MailActivityType</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">MailActivityType</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
 
     <span class="n">_name</span> <span class="o">=</span> <span class="s1">&#39;mail.activity.type&#39;</span>
 
@@ -253,9 +253,9 @@ mail         / mail.activity.type       / default_description (html)    : DEL
 <section id="write-migration-script">
 <h3>Write migration Script<a class="headerlink" href="#write-migration-script" title="Link to this heading"></a></h3>
 <p>in the <code class="docutils literal notranslate"><span class="pre">pre-migration.py</span></code> script add:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">openupgradelib</span> <span class="kn">import</span> <span class="n">openupgrade</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">openupgradelib</span><span class="w"> </span><span class="kn">import</span> <span class="n">openupgrade</span>
 
-<span class="k">def</span> <span class="nf">_rename_fields</span><span class="p">(</span><span class="n">env</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_rename_fields</span><span class="p">(</span><span class="n">env</span><span class="p">):</span>
     <span class="n">openupgrade</span><span class="o">.</span><span class="n">rename_fields</span><span class="p">(</span>
         <span class="n">env</span><span class="p">,</span>
         <span class="p">[</span>
@@ -269,7 +269,7 @@ mail         / mail.activity.type       / default_description (html)    : DEL
     <span class="p">)</span>
 
 <span class="nd">@openupgrade</span><span class="o">.</span><span class="n">migrate</span><span class="p">()</span>
-<span class="k">def</span> <span class="nf">migrate</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">version</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">migrate</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">version</span><span class="p">):</span>
     <span class="n">_rename_fields</span><span class="p">(</span><span class="n">env</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -290,7 +290,7 @@ mail         / mail.activity.type       / default_description (html)    : DEL
 
   <div role="contentinfo">
     <p>&#169; Copyright 2012-2021, Odoo Community Association (OCA) / The OpenUpgrade developers.
-      <span class="lastupdated">Last updated on Dec 31, 2024.
+      <span class="lastupdated">Last updated on Jan 22, 2025.
       </span></p>
   </div>
 

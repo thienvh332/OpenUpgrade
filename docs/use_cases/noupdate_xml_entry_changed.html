@@ -7,7 +7,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Noupdate XML entry Changed &mdash; OpenUpgrade 16.0 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
 
   
@@ -322,11 +322,11 @@ or a false positive (as in the case of the <code class="docutils literal notrans
 <section id="write-migration-script">
 <h3>Write migration Script<a class="headerlink" href="#write-migration-script" title="Link to this heading"></a></h3>
 <p>in the <code class="docutils literal notranslate"><span class="pre">post-migration.py</span></code> script, add:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">openupgradelib</span> <span class="kn">import</span> <span class="n">openupgrade</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">openupgradelib</span><span class="w"> </span><span class="kn">import</span> <span class="n">openupgrade</span>
 
 
 <span class="nd">@openupgrade</span><span class="o">.</span><span class="n">migrate</span><span class="p">()</span>
-<span class="k">def</span> <span class="nf">migrate</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">version</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">migrate</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">version</span><span class="p">):</span>
     <span class="n">openupgrade</span><span class="o">.</span><span class="n">load_data</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">cr</span><span class="p">,</span> <span class="s2">&quot;base&quot;</span><span class="p">,</span> <span class="s2">&quot;15.0.1.3/noupdate_changes.xml&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -343,11 +343,11 @@ then changing the value will not reset the translation(s),
 For exemple, for the <code class="docutils literal notranslate"><span class="pre">mail.template</span></code> named <code class="docutils literal notranslate"><span class="pre">project.mail_template_data_project_task</span></code>.</p>
 <p>See <a class="reference external" href="https://github.com/OCA/OpenUpgrade/blob/171db072829c011576da50994055826afd7f5cab/openupgrade_scripts/scripts/project/15.0.1.2/noupdate_changes.xml#L3-L16">Full noupdate_changes file</a>.</p>
 <p>In that case, delete the translation:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">openupgradelib</span> <span class="kn">import</span> <span class="n">openupgrade</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">openupgradelib</span><span class="w"> </span><span class="kn">import</span> <span class="n">openupgrade</span>
 
 
 <span class="nd">@openupgrade</span><span class="o">.</span><span class="n">migrate</span><span class="p">()</span>
-<span class="k">def</span> <span class="nf">migrate</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">version</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">migrate</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">version</span><span class="p">):</span>
     <span class="n">openupgrade</span><span class="o">.</span><span class="n">load_data</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">cr</span><span class="p">,</span> <span class="s2">&quot;project&quot;</span><span class="p">,</span> <span class="s2">&quot;15.0.1.2/noupdate_changes.xml&quot;</span><span class="p">)</span>
     <span class="n">openupgrade</span><span class="o">.</span><span class="n">delete_record_translations</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">cr</span><span class="p">,</span> <span class="s2">&quot;project&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;mail_template_data_project_task&quot;</span><span class="p">])</span>
 </pre></div>
@@ -370,7 +370,7 @@ For exemple, for the <code class="docutils literal notranslate"><span class="pre
 
   <div role="contentinfo">
     <p>&#169; Copyright 2012-2021, Odoo Community Association (OCA) / The OpenUpgrade developers.
-      <span class="lastupdated">Last updated on Dec 31, 2024.
+      <span class="lastupdated">Last updated on Jan 22, 2025.
       </span></p>
   </div>
 
