@@ -48,7 +48,7 @@ def _set_data_anchor_xml_attribute(env):
     )
     for view in website_views:
         doc = fromstring(view.arch_db)
-        links = doc.cssselect("a[href^=\#]:not([href=\#])")
+        links = doc.cssselect(r"a[href^=\#]:not([href=\#])")
         if links:
             replacement = {
                 "selector": ", ".join([link.attrib["href"] for link in links]),

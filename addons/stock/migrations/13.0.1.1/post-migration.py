@@ -195,7 +195,7 @@ def map_stock_picking_responsible_responsible_id_to_user_id(env):
         return
 
     env.cr.execute(
-        f"""
+        """
         SELECT distinct rp.id,
                         rp.name,
                         rp.company_id,
@@ -225,7 +225,7 @@ def map_stock_picking_responsible_responsible_id_to_user_id(env):
     # map responsible_id to user_id
     openupgrade.logged_query(
         env.cr,
-        f"""
+        """
         WITH partner_user AS (
             SELECT sp.id AS picking_id,
                    rp.id AS partner_id,
