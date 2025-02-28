@@ -16,7 +16,7 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     env:
       DB: "openupgrade"
       DB_HOST: "localhost"
@@ -31,7 +31,7 @@ jobs:
       OPENUPGRADE_USE_DEMO: "yes"
     steps:
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v5
         with:
           python-version: 3.7
       - name: Configure Postgres
@@ -63,14 +63,14 @@ jobs:
           # - git reset -q --hard $TRAVIS_COMMIT
           # Install Python requirements of target release
       - name: Check out Odoo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           repository: odoo/odoo
           ref: "14.0"
           fetch-depth: 1
           path: odoo
       - name: Check out OpenUpgrade
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           path: openupgrade
       - name: Configuration
