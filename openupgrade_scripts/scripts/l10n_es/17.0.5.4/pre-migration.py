@@ -28,19 +28,25 @@ def _pre_create_and_fill_l10n_es_is_simplified(env):
 
 
 def _xml_id_renaming_account_tax_template(env):
-    # In 17.0 the tax template xml_id of Intra-Community (Goods) is changed. With
-    # this method the xml_id is set correctly.
-    imds = env["ir.model.data"].search(
-        [
-            ("module", "=", "account"),
-            ("model", "=", "account.tax"),
-            ("name", "=like", "%_account_tax_template_s_iva0_ic"),
-        ]
-    )
-    for imd in imds:
-        imd.name = imd.name.replace(
-            "account_tax_template_s_iva0_ic", "account_tax_template_s_iva0_g_i"
+    """In 17.0, some tax templates XML-ID have been changed. With this method, the
+    XML-IDs are set correctly.
+    """
+    for src, dest in [
+        ("s_iva0_e", "s_iva0_g_e"),
+        ("s_iva0_ic", "s_iva0_g_i"),
+        ("s_iva0", "s_iva0_nsd"),
+    ]:
+        imds = env["ir.model.data"].search(
+            [
+                ("module", "=", "account"),
+                ("model", "=", "account.tax"),
+                ("name", "=like", f"%_account_tax_template_{src}"),
+            ]
         )
+        for imd in imds:
+            imd.name = imd.name.replace(
+                f"account_tax_template_{src}", f"account_tax_template_{dest}"
+            )
 
 
 def _remove_xml_id_account_fiscal_position(env):
