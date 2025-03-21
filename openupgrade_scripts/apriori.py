@@ -17,6 +17,8 @@ renamed_modules = {
     "l10n_eu_oss": "l10n_eu_oss_oca",
     # OCA/account-invoice-reporting
     "account_invoice_report_utm_campaign": "account_invoice_report_utm",
+    # OCA/commission
+    "sale_commission_formula": "commission_formula",
     # OCA/e-commerce
     "website_sale_attribute_filter_order": "website_sale_product_attribute_filter_order",
     # OCA/project
