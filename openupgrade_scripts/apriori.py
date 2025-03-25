@@ -25,10 +25,10 @@ renamed_modules = {
     "account_bank_statement_import_online": "account_statement_import_online",
     "account_bank_statement_import_online_paypal": "account_statement_import_online_paypal",  # noqa: B950
     "account_bank_statement_import_online_ponto": "account_statement_import_online_ponto",  # noqa: B950
+    "account_bank_statement_import_online_qonto": "account_statement_import_online_qonto",  # noqa: B950
     "account_bank_statement_import_online_transferwise": "account_statement_import_online_transferwise",  # noqa: B950
     "account_bank_statement_import_paypal": "account_statement_import_paypal",
     "account_bank_statement_import_qif": "account_statement_import_qif",
-    "account_bank_statement_import_qonto": "account_statement_import_qonto",
     "account_bank_statement_import_split": "account_statement_import_split",
     "account_bank_statement_import_save_file": "account_statement_import_save_file",
     "account_bank_statement_import_transfer_move": "account_statement_import_transfer_move",  # noqa: B950
