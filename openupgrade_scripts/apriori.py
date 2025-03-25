@@ -31,6 +31,7 @@ merged_modules = {
     "pos_daily_sales_reports": "point_of_sale",
     "pos_epson_printer_restaurant": "point_of_sale",
     "purchase_price_diff": "purchase_stock",
+    "sale_quotation_builder": "sale_pdf_quote_builder",
     "spreadsheet_dashboard_sale_expense": "spreadsheet_dashboard_hr_expense",
     "web_kanban_gauge": "web",
     "website_event_crm_questions": "website_event_crm",
