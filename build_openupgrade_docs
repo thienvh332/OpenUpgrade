@@ -17,6 +17,8 @@ DOC_PARTS="7.0/openerp/openupgrade/doc/source/modules50-60.rst
 14.0/docsource/modules130-140.rst
 15.0/docsource/modules140-150.rst
 16.0/docsource/modules150-160.rst
+17.0/docsource/modules160-170.rst
+18.0/docsource/modules170-180.rst
 "
 
 for line in $DOC_PARTS; do
