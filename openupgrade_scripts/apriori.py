@@ -7,6 +7,10 @@ renamed_modules = {
     "account_accountant": "accountant",
     # odoo
     # odoo/enterprise
+    # OCA/product-attribute
+    "product_supplierinfo_for_customer": "product_customerinfo",
+    # OCA/sale-workflow
+    "product_supplierinfo_for_customer_sale": "product_customerinfo_sale",
     # OCA/...
 }
 
