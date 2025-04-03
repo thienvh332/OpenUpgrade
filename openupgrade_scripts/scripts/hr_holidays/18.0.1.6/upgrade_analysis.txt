@@ -24,6 +24,7 @@ hr_holidays  / hr.leave.accrual.level   / accrual_validity_count (integer): NEW 
 hr_holidays  / hr.leave.accrual.level   / accrual_validity_type (selection): NEW required, selection_keys: ['day', 'month'], hasdefault: default
 hr_holidays  / hr.leave.accrual.level   / cap_accrued_time_yearly (boolean): NEW
 hr_holidays  / hr.leave.accrual.level   / maximum_leave_yearly (float)  : NEW
+hr_holidays  / hr.leave.allocation      / accrual_plan_id (many2one)    : now a function
 hr_holidays  / hr.leave.allocation      / active (boolean)              : DEL
 hr_holidays  / hr.leave.allocation      / actual_lastcall (date)        : NEW
 hr_holidays  / hr.leave.allocation      / carried_over_days_expiration_date (date): NEW

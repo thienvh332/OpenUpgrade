@@ -1,5 +1,5 @@
 ---Models in module 'l10n_es_edi_sii'---
-obsolete model l10n_es_edi.certificate
+obsolete model l10n_es_edi.certificate (merged to certificate.certificate)
 ---Fields in module 'l10n_es_edi_sii'---
 l10n_es_edi_sii / certificate.certificate  / scope (False)                 : NEW selection_keys: ['facturae', 'general', 'sii'], mode: modify
 l10n_es_edi_sii / l10n_es_edi.certificate  / company_id (many2one)         : DEL relation: res.company, required

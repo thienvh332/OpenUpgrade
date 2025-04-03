@@ -25,3 +25,7 @@ NEW account.account.tag: l10n_lu.account_tag_203 (noupdate)
 NEW account.account.tag: l10n_lu.account_tag_404 (noupdate)
 NEW account.account.tag: l10n_lu.account_tag_405 (noupdate)
 NEW account.account.tag: l10n_lu.account_tag_406 (noupdate)
+DEL account.report.expression: l10n_lu.account_tax_report_line_1b_8_supplies_carried_out_domestic_tag
+DEL account.report.expression: l10n_lu.account_tax_report_line_1b_9_supplies_carried_out_cross_border_tag
+DEL account.report.line: l10n_lu.account_tax_report_line_1b_8_supplies_carried_out_domestic
+DEL account.report.line: l10n_lu.account_tax_report_line_1b_9_supplies_carried_out_cross_border

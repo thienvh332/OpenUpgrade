@@ -5,7 +5,6 @@ l10n_br      / l10n_br.zip.range        / city_id (many2one)            : NEW re
 l10n_br      / l10n_br.zip.range        / end (char)                    : NEW required
 l10n_br      / l10n_br.zip.range        / start (char)                  : NEW required
 l10n_br      / res.city                 / l10n_br_zip_range_ids (one2many): NEW relation: l10n_br.zip.range
-l10n_br      / res.partner.bank         / proxy_type (False)            : previously in module l10n_br_pix
 ---XML records in module 'l10n_br'---
 NEW ir.model.access: l10n_br.access_l10n_br_zip_range_group_manager
 NEW ir.model.access: l10n_br.access_l10n_br_zip_range_group_user
@@ -14,6 +13,7 @@ NEW ir.model.constraint: l10n_br.constraint_l10n_br_zip_range_uniq_start
 NEW ir.ui.menu: l10n_br.brazilian_accounting_menu
 NEW ir.ui.view: l10n_br.br_partner_address_form
 NEW ir.ui.view: l10n_br.view_partner_bank_form_inherit_account
+DEL ir.ui.view: l10n_br_pix.view_partner_bank_form_inherit_account
 NEW l10n_br.zip.range: l10n_br.zip_range_0001
 NEW l10n_br.zip.range: l10n_br.zip_range_0002
 NEW l10n_br.zip.range: l10n_br.zip_range_0003

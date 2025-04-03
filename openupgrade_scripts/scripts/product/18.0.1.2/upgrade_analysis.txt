@@ -1,8 +1,18 @@
 ---Models in module 'product'---
-new model product.combo
-new model product.combo.item
+new model product.combo (renamed from pos.combo in module point_of_sale)
+new model product.combo.item (renamed from pos.combo.line in module point_of_sale)
 new model update.product.attribute.value [transient]
 ---Fields in module 'product'---
+product      / pos.combo                / _order                        : previously in module point_of_sale
+product      / pos.combo                / base_price (float)            : previously in module point_of_sale
+product      / pos.combo                / display_name (char)           : previously in module point_of_sale
+product      / pos.combo                / name (char)                   : previously in module point_of_sale
+product      / pos.combo                / sequence (integer)            : previously in module point_of_sale
+product      / pos.combo.line           / _order                        : previously in module point_of_sale
+product      / pos.combo.line           / combo_id (many2one)           : previously in module point_of_sale
+product      / pos.combo.line           / display_name (char)           : previously in module point_of_sale
+product      / pos.combo.line           / lst_price (float)             : previously in module point_of_sale
+product      / pos.combo.line           / product_id (many2one)         : previously in module point_of_sale
 product      / product.attribute        / active (boolean)              : NEW hasdefault: default
 product      / product.attribute        / template_value_ids (one2many) : NEW relation: product.template.attribute.value
 product      / product.attribute.value  / active (boolean)              : NEW hasdefault: default
@@ -10,12 +20,8 @@ product      / product.category         / message_follower_ids (one2many): NEW r
 product      / product.category         / message_ids (one2many)        : NEW relation: mail.message
 product      / product.combo            / combo_item_ids (one2many)     : NEW relation: product.combo.item
 product      / product.combo            / company_id (many2one)         : NEW relation: res.company
-product      / product.combo            / name (char)                   : NEW required
-product      / product.combo            / sequence (integer)            : NEW hasdefault: default
-product      / product.combo.item       / combo_id (many2one)           : NEW relation: product.combo, required
 product      / product.combo.item       / company_id (many2one)         : NEW relation: res.company, isrelated: related, stored
 product      / product.combo.item       / extra_price (float)           : NEW hasdefault: default
-product      / product.combo.item       / product_id (many2one)         : NEW relation: product.product, required
 product      / product.document         / _order                        : _order is now 'sequence, name' ('name')
 product      / product.document         / sequence (integer)            : NEW hasdefault: default
 product      / product.pricelist        / _order                        : _order is now 'sequence, id, name' ('sequence asc, id asc')
@@ -34,7 +40,7 @@ product      / product.template         / combo_ids (many2many)         : previo
 product      / product.template         / detailed_type (selection)     : DEL required, selection_keys: ['consu', 'service']
 product      / product.template         / is_favorite (boolean)         : NEW
 product      / product.template         / priority (selection)          : DEL selection_keys: ['0', '1']
-product      / product.template         / service_tracking (selection)  : previously in module sale_project
+product      / product.template         / service_tracking (selection)  : NEW required, selection_keys: ['no'], hasdefault: default
 product      / product.template         / type (selection)              : now required
 product      / product.template         / type (selection)              : selection_keys is now '['combo', 'consu', 'service']' ('['consu', 'service']')
 product      / res.partner              / specific_property_product_pricelist (many2one): NEW relation: product.pricelist

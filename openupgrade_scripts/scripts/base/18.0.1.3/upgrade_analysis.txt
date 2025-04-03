@@ -131,6 +131,16 @@ DEL ir.ui.view: base.ir_property_view_search
 DEL ir.ui.view: base.ir_property_view_tree
 DEL ir.ui.view: base.res_config_installer
 DEL ir.ui.view: base.res_users_identitycheck_view_form_revokedevices
+NEW res.country.state: base.state_be_1
+NEW res.country.state: base.state_be_10
+NEW res.country.state: base.state_be_2
+NEW res.country.state: base.state_be_3
+NEW res.country.state: base.state_be_4
+NEW res.country.state: base.state_be_5
+NEW res.country.state: base.state_be_6
+NEW res.country.state: base.state_be_7
+NEW res.country.state: base.state_be_8
+NEW res.country.state: base.state_be_9
 NEW res.country.state: base.state_kr_11
 NEW res.country.state: base.state_kr_26
 NEW res.country.state: base.state_kr_27

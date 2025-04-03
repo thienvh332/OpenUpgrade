@@ -8,4 +8,6 @@ website_project / project.task             / partner_phone (char)          : NEW
 NEW ir.ui.view: website_project.task_submitted
 NEW ir.ui.view: website_project.website_portal_my_project
 NEW ir.ui.view: website_project.website_portal_my_task
+DEL ir.ui.view: website_form_project.website_portal_my_project
+DEL ir.ui.view: website_form_project.website_portal_my_task
 NEW website.page: website_project.task_submitted_page

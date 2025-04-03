@@ -1,5 +1,6 @@
 ---Models in module 'payment_paypal'---
 ---Fields in module 'payment_paypal'---
+payment_paypal / payment.provider         / code (False)                  : selection_keys is now '['adyen', 'aps', 'asiapay', 'authorize', 'buckaroo', 'custom', 'demo', 'flutterwave', 'mercado_pago', 'mollie', 'none', 'nuvei', 'paypal']' ('['adyen', 'aps', 'asiapay', 'authorize', 'buckaroo', 'custom', 'demo', 'flutterwave', 'mercado_pago', 'mollie', 'none', 'paypal']')
 payment_paypal / payment.provider         / paypal_access_token (char)    : NEW
 payment_paypal / payment.provider         / paypal_access_token_expiry (datetime): NEW hasdefault: default
 payment_paypal / payment.provider         / paypal_client_id (char)       : NEW

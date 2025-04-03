@@ -15,6 +15,7 @@ website_sale / sale.order.line          / option_line_ids (one2many)    : DEL re
 website_sale / website                  / add_to_cart_action (selection): selection_keys is now '['force_dialog', 'go_to_cart', 'stay']' ('['go_to_cart', 'stay']')
 website_sale / website                  / ecommerce_access (selection)  : NEW required, selection_keys: ['everyone', 'logged_in'], hasdefault: default
 website_sale / website                  / shop_gap (char)               : NEW hasdefault: default
+website_sale_product_configurator / website                  / add_to_cart_action (False)    : DEL selection_keys: ['force_dialog', 'go_to_cart', 'stay'], mode: modify
 ---XML records in module 'website_sale'---
 NEW ir.actions.act_window: website_sale.product_ribbon_action
 DEL ir.actions.server: website_sale.ir_actions_server_sale_cart_recovery_email
@@ -53,4 +54,8 @@ DEL ir.ui.view: website_sale.payment_delivery_methods
 DEL ir.ui.view: website_sale.product_product_view_form_add
 DEL ir.ui.view: website_sale.products_fiscal_position
 DEL ir.ui.view: website_sale.row_addresses
+DEL ir.ui.view: website_sale_product_configurator.configure_optional_products
+DEL ir.ui.view: website_sale_product_configurator.optional_product_items
+DEL ir.ui.view: website_sale_product_configurator.optional_products_modal
+DEL ir.ui.view: website_sale_product_configurator.product_quantity_config
 NEW web_tour.tour: website_sale.test_01_admin_shop_tour
