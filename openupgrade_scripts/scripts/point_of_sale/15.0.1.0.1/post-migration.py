@@ -14,12 +14,12 @@ def _update_pos_payment_method_journal(env):
             ("type", "=", "bank"),
         ]
     )
-    for method in payment_methods:
+    for i, method in enumerate(payment_methods):
         method.journal_id = env["account.journal"].create(
             {
                 "type": "bank",
                 "name": f"[openupgrade] Journal for {method.name}",
-                "code": "POS_BANK",
+                "code": "POS%s" % i,
                 "company_id": method.company_id.id,
                 "sequence": 99,
             }
