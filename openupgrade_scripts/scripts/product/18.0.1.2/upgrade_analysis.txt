@@ -40,7 +40,7 @@ product      / product.template         / combo_ids (many2many)         : previo
 product      / product.template         / detailed_type (selection)     : DEL required, selection_keys: ['consu', 'service']
 product      / product.template         / is_favorite (boolean)         : NEW
 product      / product.template         / priority (selection)          : DEL selection_keys: ['0', '1']
-product      / product.template         / service_tracking (selection)  : NEW required, selection_keys: ['no'], hasdefault: default
+product      / product.template         / service_tracking (selection)  : previously in module sale_project
 product      / product.template         / type (selection)              : now required
 product      / product.template         / type (selection)              : selection_keys is now '['combo', 'consu', 'service']' ('['consu', 'service']')
 product      / res.partner              / specific_property_product_pricelist (many2one): NEW relation: product.pricelist
