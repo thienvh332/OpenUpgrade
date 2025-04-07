@@ -1,8 +1,6 @@
 ---Models in module 'l10n_fr_account'---
 new model l10n_fr.fec.export.wizard [transient]
 ---Fields in module 'l10n_fr_account'---
-l10n_fr_account / account.bank.statement.line / l10n_fr_is_company_french (boolean): previously in module l10n_fr_invoice_addr
-l10n_fr_account / account.move             / l10n_fr_is_company_french (boolean): previously in module l10n_fr_invoice_addr
 l10n_fr_account / res.company              / l10n_fr_rounding_difference_loss_account_id (many2one): previously in module l10n_fr
 l10n_fr_account / res.company              / l10n_fr_rounding_difference_profit_account_id (many2one): previously in module l10n_fr
 ---XML records in module 'l10n_fr_account'---
@@ -40,7 +38,7 @@ NEW account.report.expression: l10n_fr_account.tax_report_22_balance [renamed fr
 NEW account.report.expression: l10n_fr_account.tax_report_22_tag [renamed from l10n_fr module]
 NEW account.report.expression: l10n_fr_account.tax_report_24_tag [renamed from l10n_fr module]
 NEW account.report.expression: l10n_fr_account.tax_report_25_formula [renamed from l10n_fr module]
-NEW account.report.expression: l10n_fr_account.tax_report_26_tag [renamed from l10n_fr module]
+NEW account.report.expression: l10n_fr_account.tax_report_26_external_tag
 NEW account.report.expression: l10n_fr_account.tax_report_27_carryover [renamed from l10n_fr module]
 NEW account.report.expression: l10n_fr_account.tax_report_27_formula [renamed from l10n_fr module]
 NEW account.report.expression: l10n_fr_account.tax_report_28_formula [renamed from l10n_fr module]
@@ -157,7 +155,7 @@ NEW account.report.line: l10n_fr_account.tax_report_22A [renamed from l10n_fr mo
 NEW account.report.line: l10n_fr_account.tax_report_23 [renamed from l10n_fr module]
 NEW account.report.line: l10n_fr_account.tax_report_24 [renamed from l10n_fr module]
 NEW account.report.line: l10n_fr_account.tax_report_25 [renamed from l10n_fr module]
-NEW account.report.line: l10n_fr_account.tax_report_26 [renamed from l10n_fr module]
+NEW account.report.line: l10n_fr_account.tax_report_26_external
 NEW account.report.line: l10n_fr_account.tax_report_27 [renamed from l10n_fr module]
 NEW account.report.line: l10n_fr_account.tax_report_28 [renamed from l10n_fr module]
 NEW account.report.line: l10n_fr_account.tax_report_29 [renamed from l10n_fr module]
@@ -269,6 +267,7 @@ NEW ir.ui.menu: l10n_fr_account.account_reports_fr_statements_menu [renamed from
 NEW ir.ui.view: l10n_fr_account.fec_export_wizard_view
 NEW ir.ui.view: l10n_fr_account.report_invoice_document
 NEW ir.ui.view: l10n_fr_account.res_partner_form_l10n_fr
+DEL ir.ui.view: l10n_fr_invoice_addr.report_invoice_document
 NEW res.bank: l10n_fr_account.bank_fr_aaadfrp1
 NEW res.bank: l10n_fr_account.bank_fr_aaagfrp1
 NEW res.bank: l10n_fr_account.bank_fr_aaamfrp1

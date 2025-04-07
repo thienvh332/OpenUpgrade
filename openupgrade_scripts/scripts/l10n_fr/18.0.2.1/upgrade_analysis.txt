@@ -1,4 +1,5 @@
 ---Models in module 'l10n_fr'---
+obsolete model account.fr.fec [transient]
 ---Fields in module 'l10n_fr'---
 l10n_fr      / res.company              / l10n_fr_rounding_difference_loss_account_id (many2one): module is now 'l10n_fr_account' ('l10n_fr')
 l10n_fr      / res.company              / l10n_fr_rounding_difference_profit_account_id (many2one): module is now 'l10n_fr_account' ('l10n_fr')
@@ -37,7 +38,7 @@ DEL account.report.expression: l10n_fr.tax_report_22_balance [renamed to l10n_fr
 DEL account.report.expression: l10n_fr.tax_report_22_tag [renamed to l10n_fr_account module]
 DEL account.report.expression: l10n_fr.tax_report_24_tag [renamed to l10n_fr_account module]
 DEL account.report.expression: l10n_fr.tax_report_25_formula [renamed to l10n_fr_account module]
-DEL account.report.expression: l10n_fr.tax_report_26_tag [renamed to l10n_fr_account module]
+DEL account.report.expression: l10n_fr.tax_report_26_tag
 DEL account.report.expression: l10n_fr.tax_report_27_carryover [renamed to l10n_fr_account module]
 DEL account.report.expression: l10n_fr.tax_report_27_formula [renamed to l10n_fr_account module]
 DEL account.report.expression: l10n_fr.tax_report_28_formula [renamed to l10n_fr_account module]
@@ -154,7 +155,7 @@ DEL account.report.line: l10n_fr.tax_report_22A [renamed to l10n_fr_account modu
 DEL account.report.line: l10n_fr.tax_report_23 [renamed to l10n_fr_account module]
 DEL account.report.line: l10n_fr.tax_report_24 [renamed to l10n_fr_account module]
 DEL account.report.line: l10n_fr.tax_report_25 [renamed to l10n_fr_account module]
-DEL account.report.line: l10n_fr.tax_report_26 [renamed to l10n_fr_account module]
+DEL account.report.line: l10n_fr.tax_report_26
 DEL account.report.line: l10n_fr.tax_report_27 [renamed to l10n_fr_account module]
 DEL account.report.line: l10n_fr.tax_report_28 [renamed to l10n_fr_account module]
 DEL account.report.line: l10n_fr.tax_report_29 [renamed to l10n_fr_account module]
@@ -260,5 +261,10 @@ DEL account.report.line: l10n_fr.tax_report_tva_brute_import [renamed to l10n_fr
 DEL account.report.line: l10n_fr.tax_report_tva_brute_metropo [renamed to l10n_fr_account module]
 DEL account.report.line: l10n_fr.tax_report_tva_brute_petrolier [renamed to l10n_fr_account module]
 DEL account.report.line: l10n_fr.tax_report_tva_deductible [renamed to l10n_fr_account module]
+DEL ir.actions.act_window: l10n_fr_fec.account_fr_fec_action
 DEL ir.config_parameter: l10n_fr.display_name_in_footer_param [renamed to l10n_fr_account module]
+DEL ir.model.access: l10n_fr_fec.access_account_fr_fec
+DEL ir.rule: l10n_fr_fec.account_fr_fec_rule (noupdate)
 DEL ir.ui.menu: l10n_fr.account_reports_fr_statements_menu [renamed to l10n_fr_account module]
+DEL ir.ui.menu: l10n_fr_fec.account_fr_fec_menu
+DEL ir.ui.view: l10n_fr_fec.account_fr_fec_view

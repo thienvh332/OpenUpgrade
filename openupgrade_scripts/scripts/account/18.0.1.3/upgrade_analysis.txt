@@ -49,7 +49,6 @@ account      / account.lock_exception   / user_id (many2one)            : NEW re
 account      / account.move             / amount_untaxed_in_currency_signed (float): NEW isfunction: function, stored
 account      / account.move             / audit_trail_message_ids (one2many): NEW relation: mail.message
 account      / account.move             / checked (boolean)             : NEW
-account      / account.move             / delivery_date (date)          : not a function anymore
 account      / account.move             / invoice_currency_rate (float) : NEW isfunction: function, stored
 account      / account.move             / is_manually_modified (boolean): NEW
 account      / account.move             / journal_group_id (many2one)   : NEW relation: account.journal.group
@@ -87,13 +86,10 @@ account      / account.payment          / memo (char)                   : NEW
 account      / account.payment          / name (char)                   : is now stored
 account      / account.payment          / name (char)                   : not related anymore
 account      / account.payment          / name (char)                   : now a function
-account      / account.payment          / partner_id (many2one)         : now a function
 account      / account.payment          / state (selection)             : is now stored
 account      / account.payment          / state (selection)             : not related anymore
 account      / account.payment          / state (selection)             : selection_keys is now '['canceled', 'draft', 'in_process', 'paid', 'rejected']' ('function')
-account      / account.payment.term.line / days_next_month (char)        : previously in module account_payment_term
 account      / account.payment.term.line / delay_type (selection)        : selection_keys is now '['days_after', 'days_after_end_of_month', 'days_after_end_of_next_month', 'days_end_of_month_on_the']' ('['days_after', 'days_after_end_of_month', 'days_after_end_of_next_month']')
-account      / account.payment.term.line / display_days_next_month (boolean): previously in module account_payment_term
 account      / account.reconcile.model  / counterpart_type (selection)  : NEW selection_keys: ['general', 'purchase', 'sale'], hasdefault: default
 account      / account.reconcile.model.line / analytic_distribution_search (json): DEL
 account      / account.report           / currency_translation (selection): NEW selection_keys: ['cta', 'current'], hasdefault: compute
@@ -109,16 +105,6 @@ account      / account.tax              / price_include (boolean)       : now a 
 account      / account.tax              / price_include_override (selection): NEW selection_keys: ['tax_excluded', 'tax_included']
 account      / account.tax.group        / pos_receipt_label (char)      : NEW
 account      / ir.actions.report        / is_invoice_report (boolean)   : NEW
-account      / mail.mail                / account_audit_log_account_id (many2one): previously in module account_audit_trail
-account      / mail.mail                / account_audit_log_company_id (many2one): previously in module account_audit_trail
-account      / mail.mail                / account_audit_log_move_id (many2one): previously in module account_audit_trail
-account      / mail.mail                / account_audit_log_partner_id (many2one): previously in module account_audit_trail
-account      / mail.mail                / account_audit_log_tax_id (many2one): previously in module account_audit_trail
-account      / mail.message             / account_audit_log_account_id (many2one): previously in module account_audit_trail
-account      / mail.message             / account_audit_log_company_id (many2one): previously in module account_audit_trail
-account      / mail.message             / account_audit_log_move_id (many2one): previously in module account_audit_trail
-account      / mail.message             / account_audit_log_partner_id (many2one): previously in module account_audit_trail
-account      / mail.message             / account_audit_log_tax_id (many2one): previously in module account_audit_trail
 account      / product.category         / property_account_expense_categ_id (many2one): needs conversion to v18-style company dependent
 account      / product.category         / property_account_income_categ_id (many2one): needs conversion to v18-style company dependent
 account      / product.template         / property_account_expense_id (many2one): needs conversion to v18-style company dependent
@@ -128,7 +114,6 @@ account      / res.company              / account_journal_payment_debit_account_
 account      / res.company              / account_price_include (selection): NEW required, selection_keys: ['tax_excluded', 'tax_included'], hasdefault: default
 account      / res.company              / autopost_bills (boolean)      : NEW hasdefault: default
 account      / res.company              / batch_payment_sequence_id (many2one): NEW relation: ir.sequence
-account      / res.company              / check_account_audit_trail (boolean): previously in module account_audit_trail
 account      / res.company              / country_code (char)           : module is now 'base' ('account')
 account      / res.company              / display_invoice_tax_company_currency (boolean): NEW hasdefault: default
 account      / res.company              / hard_lock_date (date)         : NEW
@@ -156,6 +141,10 @@ account      / res.partner              / property_outbound_payment_method_line_
 account      / res.partner              / property_payment_term_id (many2one): needs conversion to v18-style company dependent
 account      / res.partner              / property_supplier_payment_term_id (many2one): needs conversion to v18-style company dependent
 account      / res.partner              / trust (selection)             : needs conversion to v18-style company dependent
+account_audit_trail / mail.mail                / account_audit_log_preview (html): type is now 'text' ('html')
+account_audit_trail / mail.message             / account_audit_log_preview (html): type is now 'text' ('html')
+account_payment_term / account.payment.term.line / delay_type (False)            : DEL selection_keys: ['days_after', 'days_after_end_of_month', 'days_after_end_of_next_month', 'days_end_of_month_on_the'], mode: modify
+l10n_dk_bookkeeping / account.move             / l10n_dk_currency_rate_at_transaction (float): DEL
 ---XML records in module 'account'---
 NEW account.payment.term: account.account_payment_term_90days_on_the_10th (noupdate)
 NEW digest.tip: account.digest_tip_account_1
@@ -170,6 +159,7 @@ NEW ir.actions.act_window: account.action_view_account_secure_entries_wizard
 DEL ir.actions.act_window: account.action_account_unreconcile
 DEL ir.actions.act_window: account.action_open_payment_items
 DEL ir.actions.act_window: account.action_open_sale_payment_items
+DEL ir.actions.act_window: account_audit_trail.action_account_audit_trail_report [renamed to account module]
 NEW ir.actions.server: account.action_account_unreconcile
 NEW ir.actions.server: account.action_move_block_payment
 NEW ir.actions.server: account.action_move_force_register_payment
@@ -179,6 +169,7 @@ DEL ir.actions.server: account.invoice_send
 NEW ir.model.access: account.access_account_autopost_bills_wizard
 NEW ir.model.access: account.access_account_code_mapping
 NEW ir.model.access: account.access_account_code_mapping_manager
+NEW ir.model.access: account.access_account_group_basic
 NEW ir.model.access: account.access_account_lock_exception
 NEW ir.model.access: account.access_account_lock_exception_manager
 NEW ir.model.access: account.access_account_merge_wizard_line_manager
@@ -186,6 +177,10 @@ NEW ir.model.access: account.access_account_merge_wizard_manager
 NEW ir.model.access: account.access_account_move_send_batch_wizard
 NEW ir.model.access: account.access_account_move_send_wizard
 NEW ir.model.access: account.access_account_payment_term_portal
+NEW ir.model.access: account.access_account_report_basic
+NEW ir.model.access: account.access_account_report_column_basic
+NEW ir.model.access: account.access_account_report_expression_basic
+NEW ir.model.access: account.access_account_report_line_basic
 NEW ir.model.access: account.access_account_secure_entries_wizard
 DEL ir.model.access: account.access_account_move_send
 DEL ir.model.access: account.access_account_tour_upload_bill
@@ -205,6 +200,7 @@ DEL ir.ui.menu: account.menu_finance_entries_accounting_miscellaneous
 DEL ir.ui.menu: account.menu_finance_entries_actions
 DEL ir.ui.menu: account.menu_finance_entries_generate_entries
 DEL ir.ui.menu: account.menu_finance_entries_management
+DEL ir.ui.menu: account_audit_trail.account_audit_trail_menu [renamed to account module]
 NEW ir.ui.view: account.account_merge_wizard_form
 NEW ir.ui.view: account.account_move_send_batch_wizard_form
 NEW ir.ui.view: account.account_move_send_wizard_form
@@ -235,6 +231,12 @@ DEL ir.ui.view: account.account_tour_upload_bill_email_confirm
 DEL ir.ui.view: account.account_unreconcile_view
 DEL ir.ui.view: account.tax_groups_totals
 DEL ir.ui.view: account.view_account_payment_method_line_kanban
+DEL ir.ui.view: account_audit_trail.res_config_settings_view_form_inherit_account_audit_trail
+DEL ir.ui.view: account_audit_trail.view_message_tree_audit_log
+DEL ir.ui.view: account_audit_trail.view_message_tree_audit_log_search
+DEL ir.ui.view: account_payment_term.account_payment_term_form
+DEL ir.ui.view: l10n_dk_bookkeeping.view_move_form_l10n_dk
+DEL ir.ui.view: l10n_dk_bookkeeping.view_move_line_tree_l10n_dk
 DEL onboarding.onboarding: account.onboarding_onboarding_account_invoice (noupdate)
 DEL onboarding.onboarding.step: account.onboarding_onboarding_step_bank_account (noupdate)
 DEL onboarding.onboarding.step: account.onboarding_onboarding_step_create_invoice (noupdate)

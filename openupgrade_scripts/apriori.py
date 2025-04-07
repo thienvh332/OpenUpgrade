@@ -35,7 +35,6 @@ merged_modules = {
     "payment_sips": "payment_worldline",
     "pos_sale_product_configurator": "pos_sale",
     "sale_product_configurator": "sale",
-    "spreadsheet_dashboard_purchase": "spreadsheet_dashboard_purchase_stock",
     "stock_landed_costs_company": "stock_landed_costs",
     "website_sale_product_configurator": "website_sale",
     # odoo/enterprise
@@ -49,9 +48,10 @@ merged_modules = {
 # only used here for upgrade_analysis
 renamed_models = {
     # odoo
+    "hr.applicant.skill": "hr.candidate.skill",
     "l10n_es_edi_facturae_adm_centers.ac_role_type": ""
     "l10n_es_edi_facturae.ac_role_type",
-    "mail.notification.web.push": "web.push",
+    "mail.notification.web.push": "mail.push",
     "mail.partner.device": "mail.push.device",
     "mail.shortcode": "mail.canned.response",
     "pos.combo": "product.combo",
@@ -62,5 +62,10 @@ renamed_models = {
 # only used here for upgrade_analysis
 merged_models = {
     # odoo
+    "google.calendar.credentials": "res.users.settings",
+    "l10n_es_edi_facturae.certificate": "certificate.certificate",
+    "l10n_es_edi.certificate": "certificate.certificate",
+    "microsoft.calendar.credentials": "res.users.settings",
+    "mrp.document": "product.document",
     # OCA/...
 }

@@ -1,5 +1,5 @@
 ---Models in module 'mrp'---
-obsolete model mrp.document
+obsolete model mrp.document (merged to product.document)
 new model mrp.batch.produce [transient]
 ---Fields in module 'mrp'---
 mrp          / mrp.document             / _inherits                     : DEL _inherits: {'ir.attachment': 'ir_attachment_id'}

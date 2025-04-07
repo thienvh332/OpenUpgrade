@@ -4,19 +4,19 @@
 from openupgradelib import openupgrade
 
 model_renames = [
-    ("mail.notification.web.push", "web.push"),
+    ("mail.notification.web.push", "mail.push"),
     ("mail.partner.device", "mail.push.device"),
     ("mail.shortcode", "mail.canned.response"),
 ]
 
 table_renames = [
-    ("mail_notification_web_push", "web_push"),
+    ("mail_notification_web_push", "mail_push"),
     ("mail_partner_device", "mail_push_device"),
     ("mail_shortcode", "mail_canned_response"),
 ]
 
 field_renames = [
-    ("web.push", "web_push", "user_device", "mail_push_device_id"),
+    ("mail.push", "mail_push", "user_device", "mail_push_device_id"),
 ]
 
 

@@ -1,10 +1,10 @@
 ---Models in module 'mail'---
-obsolete model mail.notification.web.push
-obsolete model mail.partner.device
-obsolete model mail.shortcode
-new model mail.canned.response
-new model mail.push
-new model mail.push.device
+obsolete model mail.notification.web.push (renamed to mail.push)
+obsolete model mail.partner.device (renamed to mail.push.device)
+obsolete model mail.shortcode (renamed to mail.canned.response)
+new model mail.canned.response (renamed from mail.shortcode)
+new model mail.push (renamed from mail.notification.web.push)
+new model mail.push.device (renamed from mail.partner.device)
 new model mail.scheduled.message
 ---Fields in module 'mail'---
 mail         / discuss.channel          / from_message_id (many2one)    : NEW relation: mail.message
@@ -23,25 +23,11 @@ mail         / mail.activity            / user_tz (selection)           : NEW se
 mail         / mail.activity.plan.template / delay_count (integer)         : NEW hasdefault: default
 mail         / mail.activity.plan.template / delay_from (selection)        : NEW required, selection_keys: ['after_plan_date', 'before_plan_date'], hasdefault: default
 mail         / mail.activity.plan.template / delay_unit (selection)        : NEW required, selection_keys: ['days', 'months', 'weeks'], hasdefault: default
-mail         / mail.canned.response     / description (char)            : NEW
 mail         / mail.canned.response     / group_ids (many2many)         : NEW relation: res.groups
 mail         / mail.canned.response     / is_shared (boolean)           : NEW isfunction: function, stored
-mail         / mail.canned.response     / last_used (datetime)          : NEW
-mail         / mail.canned.response     / source (char)                 : NEW required
-mail         / mail.canned.response     / substitution (text)           : NEW required
 mail         / mail.link.preview        / is_hidden (boolean)           : NEW
-mail         / mail.notification.web.push / payload (text)                : DEL
 mail         / mail.notification.web.push / user_device (many2one)        : DEL relation: mail.partner.device, required
-mail         / mail.partner.device      / endpoint (char)               : DEL required
-mail         / mail.partner.device      / expiration_time (datetime)    : DEL
-mail         / mail.partner.device      / keys (char)                   : DEL required
-mail         / mail.partner.device      / partner_id (many2one)         : DEL relation: res.partner, required
 mail         / mail.push                / mail_push_device_id (many2one): NEW relation: mail.push.device, required
-mail         / mail.push                / payload (text)                : NEW
-mail         / mail.push.device         / endpoint (char)               : NEW required
-mail         / mail.push.device         / expiration_time (datetime)    : NEW
-mail         / mail.push.device         / keys (char)                   : NEW required
-mail         / mail.push.device         / partner_id (many2one)         : NEW relation: res.partner, required, hasdefault: default
 mail         / mail.scheduled.message   / attachment_ids (many2many)    : NEW relation: ir.attachment
 mail         / mail.scheduled.message   / author_id (many2one)          : NEW relation: res.partner, required
 mail         / mail.scheduled.message   / body (html)                   : NEW
@@ -52,10 +38,7 @@ mail         / mail.scheduled.message   / partner_ids (many2many)       : NEW re
 mail         / mail.scheduled.message   / res_id (many2one_reference)   : NEW relation: model, required
 mail         / mail.scheduled.message   / scheduled_date (datetime)     : NEW required
 mail         / mail.scheduled.message   / subject (char)                : NEW
-mail         / mail.shortcode           / description (char)            : DEL
-mail         / mail.shortcode           / last_used (datetime)          : DEL
-mail         / mail.shortcode           / source (char)                 : DEL required
-mail         / mail.shortcode           / substitution (text)           : DEL required
+mail         / mail.shortcode           / _order                        : _order is now 'id desc' ('id')
 mail         / res.users.settings       / channel_notifications (selection): NEW selection_keys: ['all', 'no_notif']
 mail         / res.users.settings       / mute_until_dt (datetime)      : NEW
 ---XML records in module 'mail'---

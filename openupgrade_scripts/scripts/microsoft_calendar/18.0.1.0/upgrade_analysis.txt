@@ -1,5 +1,5 @@
 ---Models in module 'microsoft_calendar'---
-obsolete model microsoft.calendar.credentials
+obsolete model microsoft.calendar.credentials (merged to res.users.settings)
 ---Fields in module 'microsoft_calendar'---
 microsoft_calendar / calendar.event           / ms_universal_event_id (char)  : is now stored
 microsoft_calendar / calendar.event           / ms_universal_event_id (char)  : not a function anymore
