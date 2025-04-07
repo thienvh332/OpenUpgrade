@@ -51,7 +51,7 @@ renamed_models = {
     "hr.applicant.skill": "hr.candidate.skill",
     "l10n_es_edi_facturae_adm_centers.ac_role_type": ""
     "l10n_es_edi_facturae.ac_role_type",
-    "mail.notification.web.push": "web.push",
+    "mail.notification.web.push": "mail.push",
     "mail.partner.device": "mail.push.device",
     "mail.shortcode": "mail.canned.response",
     "pos.combo": "product.combo",

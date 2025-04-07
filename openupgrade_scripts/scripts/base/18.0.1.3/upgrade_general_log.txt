@@ -10,7 +10,7 @@ obsolete model ir.property [module base]
 obsolete model l10n_es_edi.certificate (merged to certificate.certificate) [module l10n_es_edi_sii]
 obsolete model l10n_es_edi_facturae_adm_centers.ac_role_type (renamed to l10n_es_edi_facturae.ac_role_type) [module l10n_es_edi_facturae]
 obsolete model l10n_es_edi_facturae.certificate (merged to certificate.certificate) [module l10n_es_edi_facturae]
-obsolete model mail.notification.web.push [module mail]
+obsolete model mail.notification.web.push (renamed to mail.push) [module mail]
 obsolete model mail.partner.device (renamed to mail.push.device) [module mail]
 obsolete model mail.shortcode (renamed to mail.canned.response) [module mail]
 obsolete model microsoft.calendar.credentials (merged to res.users.settings) [module microsoft_calendar]
@@ -76,7 +76,7 @@ new model l10n_latam.payment.register.check [module l10n_latam_check]
 new model loyalty.card.update.balance [module loyalty]
 new model loyalty.history [module loyalty]
 new model mail.canned.response (renamed from mail.shortcode) [module mail]
-new model mail.push [module mail]
+new model mail.push (renamed from mail.notification.web.push) [module mail]
 new model mail.push.device (renamed from mail.partner.device) [module mail]
 new model mail.scheduled.message [module mail]
 new model mrp.account.wip.accounting [module mrp_account]
@@ -111,14 +111,14 @@ new model website.custom_blocked_third_party_domains [module website]
 new model website.page.properties [module website]
 new model website.page.properties.base [module website]
 ---Fields in module 'general'---
-# 13368 fields matched,
-# Direct match: 13268
+# 13371 fields matched,
+# Direct match: 13271
 # Found in other module with different type: 0
 # Found in other module: 91
 # Found with different type: 9
-# In obsolete models: 38
-# New columns: 1475
-# Not matched: 824
+# In obsolete models: 34
+# New columns: 1472
+# Not matched: 821
 ---XML records in module 'general'---
 ERROR: module not in list of installed modules:
 ---Models in module 'pos_mercury'---

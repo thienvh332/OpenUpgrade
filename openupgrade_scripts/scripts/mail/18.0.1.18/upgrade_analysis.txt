@@ -1,9 +1,9 @@
 ---Models in module 'mail'---
-obsolete model mail.notification.web.push
+obsolete model mail.notification.web.push (renamed to mail.push)
 obsolete model mail.partner.device (renamed to mail.push.device)
 obsolete model mail.shortcode (renamed to mail.canned.response)
 new model mail.canned.response (renamed from mail.shortcode)
-new model mail.push
+new model mail.push (renamed from mail.notification.web.push)
 new model mail.push.device (renamed from mail.partner.device)
 new model mail.scheduled.message
 ---Fields in module 'mail'---
@@ -26,10 +26,8 @@ mail         / mail.activity.plan.template / delay_unit (selection)        : NEW
 mail         / mail.canned.response     / group_ids (many2many)         : NEW relation: res.groups
 mail         / mail.canned.response     / is_shared (boolean)           : NEW isfunction: function, stored
 mail         / mail.link.preview        / is_hidden (boolean)           : NEW
-mail         / mail.notification.web.push / payload (text)                : DEL
 mail         / mail.notification.web.push / user_device (many2one)        : DEL relation: mail.partner.device, required
 mail         / mail.push                / mail_push_device_id (many2one): NEW relation: mail.push.device, required
-mail         / mail.push                / payload (text)                : NEW
 mail         / mail.scheduled.message   / attachment_ids (many2many)    : NEW relation: ir.attachment
 mail         / mail.scheduled.message   / author_id (many2one)          : NEW relation: res.partner, required
 mail         / mail.scheduled.message   / body (html)                   : NEW
