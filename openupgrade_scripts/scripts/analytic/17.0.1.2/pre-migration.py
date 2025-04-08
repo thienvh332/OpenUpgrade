@@ -12,7 +12,9 @@ def _fill_config_parameter_analytic_project_plan(env):
     If not, we check if there's already an existing ir.model.data entry for projects
     according standard data (also pre-filled externally).
 
-    Finally, if not found, we get the first existing plan.
+    Finally, if not found, we will put the next available ID, as regular ORM update
+    process will load the record "analytic.analytic_plan_projects", and creates the
+    record that belongs to the "Projects" plan.
     """
     if env["ir.config_parameter"].get_param("analytic.project_plan", False):
         return
@@ -21,7 +23,7 @@ def _fill_config_parameter_analytic_project_plan(env):
     )
     plan_id = imd.res_id
     if not plan_id:
-        env.cr.execute("SELECT min(id) FROM account_analytic_plan")
+        env.cr.execute("SELECT last_value + 1 FROM account_analytic_plan_id_seq;")
         plan_id = env.cr.fetchone()[0]
     env["ir.config_parameter"].set_param("analytic.project_plan", str(plan_id))
 
