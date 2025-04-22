@@ -6,7 +6,8 @@ from openupgradelib import openupgrade
 def _update_pos_payment_method_journal(env):
     """From now on, a journal is required when the transactions aren't splitted. If we
     don't set a journal in these cases, the session closing won't be made properly for
-    these methods. Cash payment methos already had a jornal set, but bank ones didn't."""
+    these methods. Cash payment methos already had a jornal set, but bank ones didn't.
+    """
     payment_methods = (
         env["pos.payment.method"]
         .search(
