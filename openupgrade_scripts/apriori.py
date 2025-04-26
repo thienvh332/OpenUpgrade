@@ -1,4 +1,4 @@
-""" Encode any known changes to the database here
+"""Encode any known changes to the database here
 to help the matching process
 """
 
