@@ -12,6 +12,7 @@ renamed_modules = {
     # odoo/enterprise
     # OCA/product-attribute
     "product_supplierinfo_for_customer": "product_customerinfo",
+    "product_template_tags_code": "product_tags_code",
     "stock_packaging_calculator": "product_packaging_calculator",
     # OCA/sale-workflow
     "product_supplierinfo_for_customer_sale": "product_customerinfo_sale",
