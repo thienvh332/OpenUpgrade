@@ -15,6 +15,7 @@ renamed_modules = {
     "stock_packaging_calculator": "product_packaging_calculator",
     # OCA/sale-workflow
     "product_supplierinfo_for_customer_sale": "product_customerinfo_sale",
+    "sale_product_set_sale_by_packaging": "product_set_sell_only_by_packaging",
     # OCA/...
 }
 
