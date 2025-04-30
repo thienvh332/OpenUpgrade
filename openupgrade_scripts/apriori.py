@@ -18,6 +18,8 @@ renamed_modules = {
     # OCA/sale-workflow
     "product_supplierinfo_for_customer_sale": "product_customerinfo_sale",
     "sale_product_set_sale_by_packaging": "product_set_sell_only_by_packaging",
+    # OCA/stock-logistics-workflow
+    "stock_picking_type_shipping_policy": "stock_picking_type_force_move_type",
     # OCA/...
 }
 
