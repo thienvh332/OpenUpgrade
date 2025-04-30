@@ -11,9 +11,15 @@ renamed_modules = {
     "website_form_project": "website_project",
     # odoo/enterprise
     # OCA/product-attribute
+    "product_packaging_type_vendor": "product_packaging_level_vendor",
     "product_supplierinfo_for_customer": "product_customerinfo",
+    "product_template_tags_code": "product_tags_code",
+    "stock_packaging_calculator": "product_packaging_calculator",
     # OCA/sale-workflow
     "product_supplierinfo_for_customer_sale": "product_customerinfo_sale",
+    "sale_product_set_sale_by_packaging": "product_set_sell_only_by_packaging",
+    # OCA/stock-logistics-workflow
+    "stock_picking_type_shipping_policy": "stock_picking_type_force_move_type",
     # OCA/...
 }
 
