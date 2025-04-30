@@ -8,6 +8,8 @@ renamed_modules = {
     "note": "project_todo",
     "website_sale_delivery_mondialrelay": "website_sale_mondialrelay",
     # odoo/enterprise
+    # OCA/delivery-carrier
+    "delivery_carrier_customer_info": "partner_delivery_info",
     # OCA/social
     "mail_activity_unlink_log": "mail_activity_cancel_tracking",
 }
