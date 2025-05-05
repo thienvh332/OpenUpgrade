@@ -23,6 +23,21 @@ def _fix_list_view_type(cr):
     openupgrade.logged_query(cr, "UPDATE ir_ui_view SET type='list' WHERE type='tree'")
 
 
+def _fix_list_view_mode(cr):
+    """
+    Previous actions had a default value of tree,form, but now the default is list,form.
+    If any records do not define this field explicitly,
+    the default value from the previous version is kept, which causes an error.
+    """
+    openupgrade.logged_query(
+        cr,
+        r"""UPDATE ir_act_window
+            SET view_mode = REGEXP_REPLACE(view_mode, '(^|,)tree(,|$)', '\1list\2', 'g')
+        WHERE view_mode ~ '(^|,)tree(,|$)'
+        """,
+    )
+
+
 def _fix_serbian_res_lang_record(cr):
     """
     ISO code of Serbian (Cyrillic) has been changed
@@ -50,5 +65,6 @@ def migrate(cr, version):
     openupgrade.clean_transient_models(cr)
     openupgrade.rename_xmlids(cr, _renamed_xmlids)
     _fix_list_view_type(cr)
+    _fix_list_view_mode(cr)
     _fix_serbian_res_lang_record(cr)
     _fix_company_layout_background(cr)
