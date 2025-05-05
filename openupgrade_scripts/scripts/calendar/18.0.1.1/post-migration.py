@@ -16,3 +16,10 @@ def migrate(env, version):
             "calendar_template_meeting_update",
         ],
     )
+    openupgrade.delete_records_safely_by_xml_id(
+        env,
+        [
+            "calendar.onboarding_onboarding_calendar",
+            "calendar.onboarding_onboarding_step_setup_calendar_integration",
+        ],
+    )
