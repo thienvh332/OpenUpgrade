@@ -10,6 +10,10 @@ renamed_modules = {
     "website_sale_picking": "website_sale_collect",
     "website_form_project": "website_project",
     # odoo/enterprise
+    # OCA/commission
+    "account_commission": "account_commission_oca",
+    "commission": "commission_oca",
+    "sale_commission": "sale_commission_oca",
     # OCA/product-attribute
     "product_packaging_type_vendor": "product_packaging_level_vendor",
     "product_supplierinfo_for_customer": "product_customerinfo",
