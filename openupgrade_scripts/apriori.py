@@ -51,6 +51,7 @@ merged_modules = {
     "l10n_de_skr04_mis_reports": "l10n_de_mis_reports",
     # OCA/l10n-spain
     "l10n_es_dua": "l10n_es",
+    "l10n_es_dua_sii": "l10n_es_aeat_sii_oca",
     "l10n_es_irnr": "l10n_es",
     "l10n_es_irnr_sii": "l10n_es_aeat_sii_oca",
     # OCA/maintenance
