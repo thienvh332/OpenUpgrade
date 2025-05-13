@@ -44,6 +44,8 @@ merged_modules = {
     "website_sale_stock_product_configurator": "website_sale_product_configurator",
     # OCA/account-invoicing
     "account_invoice_fiscal_position_update": "account",
+    # OCA/e-commerce
+    "website_sale_invoice_address": "website_sale",
     # OCA/hr-attendance
     "hr_attendance_geolocation": "hr_attendance",
     # OCA/l10n-germany
