@@ -24,32 +24,14 @@ repair       / repair.fee               / product_uom (many2one)        : DEL re
 repair       / repair.fee               / product_uom_qty (float)       : DEL required
 repair       / repair.fee               / repair_id (many2one)          : DEL relation: repair.order, required
 repair       / repair.fee               / tax_id (many2many)            : DEL relation: account.tax
-repair       / repair.order             / fees_lines (one2many)         : DEL relation: repair.fee
-# NOTHING TO DO: model removed
-
-repair       / repair.line              / company_id (many2one)         : DEL relation: res.company
 repair       / repair.line              / invoice_line_id (many2one)    : DEL relation: account.move.line
 repair       / repair.line              / invoiced (boolean)            : DEL
-repair       / repair.line              / location_dest_id (many2one)   : DEL relation: stock.location, required
-repair       / repair.line              / location_id (many2one)        : DEL relation: stock.location, required
-repair       / repair.line              / lot_id (many2one)             : DEL relation: stock.lot
-repair       / repair.line              / move_id (many2one)            : DEL relation: stock.move
-repair       / repair.line              / name (text)                   : DEL required
 repair       / repair.line              / price_subtotal (float)        : DEL
 repair       / repair.line              / price_total (float)           : DEL
 repair       / repair.line              / price_unit (float)            : DEL required
-repair       / repair.line              / product_id (many2one)         : DEL relation: product.product, required
-repair       / repair.line              / product_uom (many2one)        : DEL relation: uom.uom, required
-repair       / repair.line              / product_uom_qty (float)       : DEL required
-repair       / repair.line              / repair_id (many2one)          : DEL relation: repair.order, required
-repair       / repair.line              / state (selection)             : DEL required, selection_keys: ['cancel', 'confirmed', 'done', 'draft']
 repair       / repair.line              / tax_id (many2many)            : DEL relation: account.tax
-repair       / repair.line              / type (selection)              : DEL required, selection_keys: ['add', 'remove']
-repair       / stock.move               / repair_line_type (selection)  : NEW selection_keys: ['add', 'recycle', 'remove']
-repair       / repair.order             / move_ids (one2many)           : NEW relation: stock.move
+repair       / repair.order             / fees_lines (one2many)         : DEL relation: repair.fee
 repair       / repair.order             / operations (one2many)         : DEL relation: repair.line
-# DONE: post-migration: merged into stock.move using repair_line_type
-
 repair       / repair.order             / activity_user_id (many2one)   : not related anymore
 repair       / repair.order             / activity_user_id (many2one)   : now a function
 repair       / repair.order             / address_id (many2one)         : DEL relation: res.partner
@@ -61,37 +43,72 @@ repair       / repair.order             / guarantee_limit (date)        : DEL
 repair       / repair.order             / invoice_id (many2one)         : DEL relation: account.move
 repair       / repair.order             / invoice_method (selection)    : DEL required, selection_keys: ['after_repair', 'b4repair', 'none']
 repair       / repair.order             / invoiced (boolean)            : DEL
-repair       / repair.order             / is_parts_available (boolean)  : NEW isfunction: function, stored
-repair       / repair.order             / is_parts_late (boolean)       : NEW isfunction: function, stored
-repair       / repair.order             / location_dest_id (many2one)   : NEW relation: stock.location, required, isrelated: related, stored
-repair       / repair.order             / location_id (many2one)        : not a function anymore
-repair       / repair.order             / lot_id (many2one)             : now a function
+repair       / repair.order             / repaired (boolean)            : DEL
 repair       / repair.order             / message_main_attachment_id (many2one): DEL relation: ir.attachment
 repair       / repair.order             / partner_invoice_id (many2one) : DEL relation: res.partner
+repair       / repair.order             / pricelist_id (many2one)       : DEL relation: product.pricelist
+repair       / repair.order             / quotation_notes (html)        : DEL
+# NOTHING TO DO: These fields and models were removed in this PR https://github.com/odoo/odoo/pull/106911
+
+repair       / repair.line              / company_id (many2one)         : DEL relation: res.company
+repair       / repair.line              / location_dest_id (many2one)   : DEL relation: stock.location, required
+repair       / repair.line              / location_id (many2one)        : DEL relation: stock.location, required
+repair       / repair.line              / lot_id (many2one)             : DEL relation: stock.lot
+repair       / repair.line              / move_id (many2one)            : DEL relation: stock.move
+repair       / repair.line              / name (text)                   : DEL required
+repair       / repair.line              / product_id (many2one)         : DEL relation: product.product, required
+repair       / repair.line              / product_uom (many2one)        : DEL relation: uom.uom, required
+repair       / repair.line              / product_uom_qty (float)       : DEL required
+repair       / repair.line              / repair_id (many2one)          : DEL relation: repair.order, required
+repair       / repair.line              / state (selection)             : DEL required, selection_keys: ['cancel', 'confirmed', 'done', 'draft']
+repair       / repair.line              / type (selection)              : DEL required, selection_keys: ['add', 'remove']
+repair       / stock.move               / repair_line_type (selection)  : NEW selection_keys: ['add', 'recycle', 'remove']
+repair       / repair.order             / move_ids (one2many)           : NEW relation: stock.move
+# DONE: post-migration: merged into stock.move using repair_line_type
+
+repair       / repair.order             / is_parts_available (boolean)  : NEW isfunction: function, stored
+repair       / repair.order             / is_parts_late (boolean)       : NEW isfunction: function, stored
+# NOTHING TO DO: Handled by the ORM
+
+repair       / repair.order             / location_dest_id (many2one)   : NEW relation: stock.location, required, isrelated: related, stored
 repair       / repair.order             / parts_location_id (many2one)  : NEW relation: stock.location, required, isrelated: related, stored
 repair       / repair.order             / picking_type_id (many2one)    : NEW relation: stock.picking.type, required, hasdefault: default
-repair       / repair.order             / pricelist_id (many2one)       : DEL relation: product.pricelist
-repair       / repair.order             / procurement_group_id (many2one): NEW relation: procurement.group
-repair       / repair.order             / quotation_notes (html)        : DEL
-repair       / repair.order             / rating_ids (one2many)         : NEW relation: rating.rating
 repair       / repair.order             / recycle_location_id (many2one): NEW relation: stock.location, required, hasdefault: compute
-repair       / repair.order             / repaired (boolean)            : DEL
+# DONE: post-migration: filled picking_type_id from the warehouse of the location and populated other related fields from picking_type_id.
+
+repair       / repair.order             / location_id (many2one)        : not a function anymore
+# NOTHING TO DO: the field definition not change
+
+repair       / repair.order             / lot_id (many2one)             : now a function
+# NOTHING TO DO: Converted to a computed field with store=True.
+
+repair       / repair.order             / procurement_group_id (many2one): NEW relation: procurement.group
+# DONE: post-migration: create the procurement records and assign it to the stock moves
+
+repair       / repair.order             / rating_ids (one2many)         : NEW relation: rating.rating
+# NOTHING TO DO:
+
 repair       / repair.order             / schedule_date (date)          : now required
 repair       / repair.order             / schedule_date (date)          : type is now 'datetime' ('date')
-repair       / repair.order             / state (selection)             : selection_keys is now '['cancel', 'confirmed', 'done', 'draft', 'under_repair']' ('['2binvoiced', 'cancel', 'confirmed', 'done', 'draft', 'ready', 'under_repair']')
+# DONE: pre-migration: Assign the create_date to schedule_date for records where the field is null.
+# The type cast from date to datetime is handled by PostgreSQL
+
 repair       / repair.order             / under_warranty (boolean)      : NEW
 repair       / repair.order             / sale_order_line_id (many2one) : NEW relation: sale.order.line
 repair       / sale.order               / repair_order_ids (one2many)   : NEW relation: repair.order
+# NOTHING TO DO: New feature that does not impact current behavior.
+
 repair       / stock.picking            / is_repairable (boolean)       : not related anymore
 repair       / stock.picking            / is_repairable (boolean)       : now a function
-# TODO: post-migration: fill some new fields (to check which ones)
-# TODO: post-migration: create sale orders (and sale order lines) for invoiced repair orders that don't have sale orders
-# TODO: post-migration: link repair invoices with the sale orders (same for invoice lines and sale order lines)
+# NOTHING TO DO: Handled by the ORM. It's just a non-storable related field converted to a non-storable computed field.
+
+repair       / repair.order             / state (selection)             : selection_keys is now '['cancel', 'confirmed', 'done', 'draft', 'under_repair']' ('['2binvoiced', 'cancel', 'confirmed', 'done', 'draft', 'ready', 'under_repair']')
+# DONE: post-migration: ready -> confirmed. 2binvoiced and not repaired -> confirmed. - 2binvoiced and repaired -> done.
 
 repair       / stock.picking.type       / code (False)                  : NEW selection_keys: ['incoming', 'internal', 'mrp_operation', 'outgoing', 'repair_operation'], mode: modify
 repair       / stock.picking.type       / default_recycle_location_dest_id (many2one): NEW relation: stock.location, hasdefault: compute
 repair       / stock.picking.type       / default_remove_location_dest_id (many2one): NEW relation: stock.location, hasdefault: compute
-# NOTHING TO DO
+# NOTHING TO DO: Handled by the ORM
 
 repair       / stock.warehouse          / repair_type_id (many2one)     : NEW relation: stock.picking.type
 # DONE: post-migration: assure every warehouse has new repair type
