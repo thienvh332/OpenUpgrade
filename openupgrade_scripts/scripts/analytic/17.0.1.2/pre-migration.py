@@ -55,3 +55,7 @@ def migrate(env, version):
     openupgrade.copy_columns(
         env.cr, {"account_analytic_plan": [("company_id", None, None)]}
     )
+    # Rename default_applicability which is going to become a property
+    openupgrade.rename_columns(
+        env.cr, {"account_analytic_plan": [("default_applicability", None)]}
+    )
