@@ -68,6 +68,8 @@ new model l10n_br.zip.range [module l10n_br]
 new model l10n_es_edi_facturae.ac_role_type (renamed from l10n_es_edi_facturae_adm_centers.ac_role_type) [module l10n_es_edi_facturae]
 new model l10n_es_edi_tbai.document [module l10n_es_edi_tbai]
 new model l10n_fr.fec.export.wizard [module l10n_fr_account]
+new model l10n_gr_edi.document [module l10n_gr_edi]
+new model l10n_gr_edi.preferred_classification [module l10n_gr_edi]
 new model l10n_id_efaktur.document [module l10n_id_efaktur]
 new model l10n_id.qris.transaction [module l10n_id]
 new model l10n_in.section.alert [module l10n_in_withholding]
@@ -117,7 +119,7 @@ new model website.page.properties.base [module website]
 # Found in other module: 92
 # Found with different type: 8
 # In obsolete models: 34
-# New columns: 1472
+# New columns: 1543
 # Not matched: 821
 ---XML records in module 'general'---
 ERROR: module not in list of installed modules:

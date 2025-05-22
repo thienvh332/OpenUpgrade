@@ -8,3 +8,4 @@ l10n_sa_edi  / account.journal          / l10n_sa_production_csid_validity (date
 l10n_sa_edi  / res.company              / l10n_sa_private_key (binary)  : DEL attachment: False
 l10n_sa_edi  / res.company              / l10n_sa_private_key_id (many2one): NEW relation: certificate.key
 ---XML records in module 'l10n_sa_edi'---
+DEL ir.ui.view: l10n_sa_edi.account_move_send_form

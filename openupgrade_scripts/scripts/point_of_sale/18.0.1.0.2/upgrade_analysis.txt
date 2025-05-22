@@ -19,8 +19,6 @@ point_of_sale / pos.combo                / name (char)                   : modul
 point_of_sale / pos.combo                / sequence (integer)            : module is now 'product' ('point_of_sale')
 point_of_sale / pos.combo.line           / _order                        : module is now 'product' ('point_of_sale')
 point_of_sale / pos.combo.line           / combo_id (many2one)           : module is now 'product' ('point_of_sale')
-point_of_sale / pos.combo.line           / combo_id (many2one)           : now required
-point_of_sale / pos.combo.line           / combo_id (many2one)           : relation is now 'product.combo' ('pos.combo') [nothing to do]
 point_of_sale / pos.combo.line           / combo_price (float)           : DEL
 point_of_sale / pos.combo.line           / display_name (char)           : module is now 'product' ('point_of_sale')
 point_of_sale / pos.combo.line           / lst_price (float)             : module is now 'product' ('point_of_sale')
@@ -73,12 +71,8 @@ point_of_sale / pos.payment.method       / payment_method_type (selection): NEW 
 point_of_sale / pos.payment.method       / qr_code_method (selection)    : NEW selection_keys: function
 point_of_sale / pos.printer              / company_id (many2one)         : NEW relation: res.company, required, hasdefault: default
 point_of_sale / product.product          / combo_ids (many2many)         : module is now 'product' ('point_of_sale')
-point_of_sale / product.product          / combo_ids (many2many)         : relation is now 'product.combo' ('pos.combo') [nothing to do]
 point_of_sale / product.template         / color (False)                 : NEW mode: modify, hasdefault: compute
-point_of_sale / product.template         / combo_ids (many2many)         : column2 is now 'product_combo_id' ('pos_combo_id') [pos_combo_product_template_rel]
 point_of_sale / product.template         / combo_ids (many2many)         : module is now 'product' ('point_of_sale')
-point_of_sale / product.template         / combo_ids (many2many)         : relation is now 'product.combo' ('pos.combo') [nothing to do]
-point_of_sale / product.template         / combo_ids (many2many)         : table is now 'product_combo_product_template_rel' ('pos_combo_product_template_rel')
 point_of_sale / product.template         / detailed_type (False)         : DEL selection_keys: ['combo', 'consu', 'product', 'service'], mode: modify
 point_of_sale / product.template         / public_description (html)     : NEW
 point_of_sale / product.template         / type (False)                  : DEL selection_keys: ['combo', 'consu', 'product', 'service'], mode: modify
