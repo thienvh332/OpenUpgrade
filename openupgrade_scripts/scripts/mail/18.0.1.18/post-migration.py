@@ -40,15 +40,15 @@ def discuss_channel_member_new_message_separator(env):
             FROM mail_message
             JOIN discuss_channel
             ON discuss_channel.id=mail_message.res_id
-            AND mail_message.model='discuss.channel'
+                AND mail_message.model='discuss.channel'
             JOIN discuss_channel_member
-            ON discuss_channel_member.channel_id=discuss_channel.id
+                ON discuss_channel_member.channel_id=discuss_channel.id
             WHERE
-            mail_message.create_date > discuss_channel_member.last_interest_dt
+                mail_message.create_date >= discuss_channel_member.last_interest_dt
             GROUP BY mail_message.res_id
         ) mail_message
         WHERE
-        discuss_channel_member.channel_id=mail_message.res_id
+            discuss_channel_member.channel_id=mail_message.res_id
         """,
     )
 

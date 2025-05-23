@@ -2,7 +2,7 @@
 new model hr.manager.department.report [abstract]
 ---Fields in module 'hr'---
 hr           / hr.department            / activity_ids (one2many)       : NEW relation: mail.activity
-hr           / hr.department            / has_read_access (boolean)     : NEW
+hr           / hr.department            / has_read_access (boolean)     : NEW stored: False
 hr           / hr.department            / message_has_sms_error (boolean): previously in module sms
 hr           / hr.department            / website_message_ids (one2many): previously in module portal
 hr           / hr.employee              / category_ids (many2many)      : column1 is now 'employee_id' ('emp_id') [employee_category_rel]
@@ -21,7 +21,6 @@ hr           / hr.employee              / website_message_ids (one2many): previo
 hr           / hr.employee.category     / employee_ids (many2many)      : column2 is now 'employee_id' ('emp_id') [employee_category_rel]
 hr           / hr.job                   / message_has_sms_error (boolean): previously in module sms
 hr           / hr.job                   / no_of_hired_employee (integer): module is now 'hr_recruitment' ('hr')
-hr           / hr.job                   / no_of_hired_employee (integer): now a function
 hr           / hr.job                   / website_message_ids (one2many): previously in module portal
 hr           / res.company              / hr_presence_control_attendance (boolean): NEW
 hr           / res.company              / hr_presence_control_email (boolean): NEW

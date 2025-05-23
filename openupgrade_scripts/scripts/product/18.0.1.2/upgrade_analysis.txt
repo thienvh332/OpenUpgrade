@@ -3,6 +3,12 @@ new model product.combo (renamed from pos.combo in module point_of_sale)
 new model product.combo.item (renamed from pos.combo.line in module point_of_sale)
 new model update.product.attribute.value [transient]
 ---Fields in module 'product'---
+point_of_sale / pos.combo.line           / combo_id (many2one)           : now required
+point_of_sale / pos.combo.line           / combo_id (many2one)           : relation is now 'product.combo' ('pos.combo') [nothing to do]
+point_of_sale / product.product          / combo_ids (many2many)         : relation is now 'product.combo' ('pos.combo') [nothing to do]
+point_of_sale / product.template         / combo_ids (many2many)         : column2 is now 'product_combo_id' ('pos_combo_id') [pos_combo_product_template_rel]
+point_of_sale / product.template         / combo_ids (many2many)         : relation is now 'product.combo' ('pos.combo') [nothing to do]
+point_of_sale / product.template         / combo_ids (many2many)         : table is now 'product_combo_product_template_rel' ('pos_combo_product_template_rel')
 product      / pos.combo                / _order                        : previously in module point_of_sale
 product      / pos.combo                / base_price (float)            : previously in module point_of_sale
 product      / pos.combo                / display_name (char)           : previously in module point_of_sale
@@ -44,6 +50,9 @@ product      / product.template         / service_tracking (selection)  : previo
 product      / product.template         / type (selection)              : now required
 product      / product.template         / type (selection)              : selection_keys is now '['combo', 'consu', 'service']' ('['consu', 'service']')
 product      / res.partner              / specific_property_product_pricelist (many2one): NEW relation: product.pricelist
+sale_project / product.product          / service_tracking (selection)  : now required
+sale_project / product.template         / service_tracking (selection)  : now required
+sale_project / product.template         / service_tracking (selection)  : selection_keys is now '['no']' ('['no', 'project_only', 'task_global_project', 'task_in_project']')
 ---XML records in module 'product'---
 NEW ir.actions.act_window: product.product_combo_action
 NEW ir.model.access: product.access_product_combo_item_manager

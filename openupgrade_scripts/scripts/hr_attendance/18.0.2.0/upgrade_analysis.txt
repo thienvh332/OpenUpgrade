@@ -3,7 +3,7 @@
 hr_attendance / hr.attendance            / expected_hours (float)        : NEW isfunction: function, stored
 hr_attendance / hr.attendance            / in_mode (selection)           : selection_keys is now '['kiosk', 'manual', 'systray', 'technical']' ('['kiosk', 'manual', 'systray']')
 hr_attendance / hr.attendance            / out_mode (selection)          : selection_keys is now '['auto_check_out', 'kiosk', 'manual', 'systray', 'technical']' ('['kiosk', 'manual', 'systray']')
-hr_attendance / hr.attendance            / overtime_status (selection)   : NEW selection_keys: ['approved', 'refused', 'to_approve'], isfunction: function, stored
+hr_attendance / hr.attendance            / overtime_status (selection)   : NEW selection_keys: ['approved', 'refused', 'to_approve'], hasdefault: compute
 hr_attendance / hr.attendance            / validated_overtime_hours (float): NEW hasdefault: compute
 hr_attendance / res.company              / absence_management (boolean)  : NEW hasdefault: default
 hr_attendance / res.company              / attendance_overtime_validation (selection): NEW selection_keys: ['by_manager', 'no_validation'], hasdefault: default

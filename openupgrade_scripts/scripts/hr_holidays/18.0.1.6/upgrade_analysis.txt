@@ -33,7 +33,7 @@ hr_holidays  / hr.leave.allocation      / employee_id (many2one)        : now re
 hr_holidays  / hr.leave.allocation      / employee_ids (many2many)      : DEL relation: hr.employee
 hr_holidays  / hr.leave.allocation      / expiring_carryover_days (float): NEW
 hr_holidays  / hr.leave.allocation      / holiday_type (selection)      : DEL required, selection_keys: ['category', 'company', 'department', 'employee']
-hr_holidays  / hr.leave.allocation      / is_name_custom (boolean)      : NEW
+hr_holidays  / hr.leave.allocation      / is_name_custom (boolean)      : NEW stored: False
 hr_holidays  / hr.leave.allocation      / last_executed_carryover_date (date): NEW
 hr_holidays  / hr.leave.allocation      / linked_request_ids (one2many) : DEL relation: hr.leave.allocation
 hr_holidays  / hr.leave.allocation      / mode_company_id (many2one)    : DEL relation: res.company
