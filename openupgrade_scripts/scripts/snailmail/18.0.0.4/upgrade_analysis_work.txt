@@ -3,4 +3,4 @@
 ---XML records in module 'snailmail'---
 NEW iap.service: snailmail.iap_service_snailmail
 
-# DONE: precreate xmlid if iap migration created an iap.service record
+# NOTHING TO DO: iap's end-migration links existing iap.account records to this service
