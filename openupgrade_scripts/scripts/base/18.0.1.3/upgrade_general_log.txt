@@ -119,7 +119,7 @@ new model website.page.properties.base [module website]
 # Found in other module: 92
 # Found with different type: 8
 # In obsolete models: 34
-# New columns: 1543
+# New columns: 1544
 # Not matched: 821
 ---XML records in module 'general'---
 ERROR: module not in list of installed modules:
