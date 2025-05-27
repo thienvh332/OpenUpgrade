@@ -62,8 +62,8 @@ def hr_attendance_menus(env):
     env.ref("hr_attendance.menu_hr_attendance_root").write(
         {
             "groups_id": [
-                Command.delete(group_hr_attendance.id),
-                Command.delete(group_hr_attendance_kiosk.id),
+                Command.unlink(group_hr_attendance.id),
+                Command.unlink(group_hr_attendance_kiosk.id),
             ]
         }
     )
@@ -71,7 +71,7 @@ def hr_attendance_menus(env):
     env.ref("hr_attendance.menu_hr_attendance_kiosk_no_user_mode").write(
         {
             "groups_id": [
-                Command.delete(group_hr_attendance_kiosk.id),
+                Command.unlink(group_hr_attendance_kiosk.id),
             ]
         }
     )
