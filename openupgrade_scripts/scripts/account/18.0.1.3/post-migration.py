@@ -85,7 +85,7 @@ def fill_res_partner_property_x_payment_method_line_id(env):
         FROM (
             SELECT
             SPLIT_PART(ip.res_id, ',', 2)::integer res_id,
-            JSON_OBJECT_AGG(ip.company_id, sub.id) value
+            JSON_OBJECT_AGG(ip.company_id, sub.id) AS "value"
             FROM ir_property ip
             JOIN LATERAL (
                 SELECT *
