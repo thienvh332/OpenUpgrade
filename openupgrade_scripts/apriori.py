@@ -43,7 +43,7 @@ merged_modules = {
     "l10n_es_edi_facturae_adm_centers": "l10n_es_edi_facturae",
     "l10n_es_edi_facturae_invoice_period": "l10n_es_edi_facturae",
     "l10n_es_edi_tbai_multi_refund": "l10n_es_edi_tbai",
-    "l10n_fr_fec": "l10n_fr",
+    "l10n_fr_fec": "l10n_fr_account",
     "l10n_fr_invoice_addr": "l10n_fr_account",
     "l10n_ro_efactura": "l10n_ro_edi",
     "im_livechat_mail_bot": "mail_bot",
