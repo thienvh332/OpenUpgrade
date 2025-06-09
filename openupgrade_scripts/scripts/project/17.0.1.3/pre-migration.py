@@ -57,7 +57,22 @@ def _convert_project_task_state(env):
     )
 
 
+def _set_default_analytic_plan_id(env):
+    """
+    default analytic_plan_id from res.config.settings has been moved from res.company
+    related to ir.config_parameter.
+    Since we already set this same plan in analytic pre-migration,
+    we reuse it for project
+    """
+    plan_id = env["ir.config_parameter"].get_param("analytic.project_plan", False)
+    if plan_id:
+        env["ir.config_parameter"].set_param(
+            "analytic.analytic_plan_projects", str(plan_id)
+        )
+
+
 @openupgrade.migrate()
 def migrate(env, version):
     _rename_fields(env)
     _convert_project_task_state(env)
+    _set_default_analytic_plan_id(env)
