@@ -36,7 +36,7 @@ stock        / stock.rule               / location_dest_from_rule (boolean): NEW
 stock        / stock.rule               / push_domain (char)            : NEW
 stock        / stock.scrap              / scrap_reason_tag_ids (many2many): NEW relation: stock.scrap.reason.tag
 stock        / stock.scrap.reason.tag   / color (char)                  : NEW hasdefault: default
-stock        / stock.scrap.reason.tag   / name (char)                   : NEW required
+stock        / stock.scrap.reason.tag   / name (char)                   : NEW required, translate
 stock        / stock.scrap.reason.tag   / sequence (integer)            : NEW hasdefault: default
 stock        / stock.warehouse          / qc_type_id (many2one)         : NEW relation: stock.picking.type
 stock        / stock.warehouse          / store_type_id (many2one)      : NEW relation: stock.picking.type

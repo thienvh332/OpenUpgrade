@@ -74,7 +74,7 @@ point_of_sale / product.product          / combo_ids (many2many)         : modul
 point_of_sale / product.template         / color (False)                 : NEW mode: modify, hasdefault: compute
 point_of_sale / product.template         / combo_ids (many2many)         : module is now 'product' ('point_of_sale')
 point_of_sale / product.template         / detailed_type (False)         : DEL selection_keys: ['combo', 'consu', 'product', 'service'], mode: modify
-point_of_sale / product.template         / public_description (html)     : NEW
+point_of_sale / product.template         / public_description (html)     : NEW translate
 point_of_sale / product.template         / type (False)                  : DEL selection_keys: ['combo', 'consu', 'product', 'service'], mode: modify
 point_of_sale / res.company              / point_of_sale_ticket_portal_url_display_mode (selection): NEW required, selection_keys: ['qr_code', 'qr_code_and_url', 'url'], hasdefault: default
 ---XML records in module 'point_of_sale'---

@@ -33,7 +33,7 @@ base         / ir.embedded.actions      / default_view_mode (char)      : NEW
 base         / ir.embedded.actions      / domain (char)                 : NEW hasdefault: default
 base         / ir.embedded.actions      / filter_ids (one2many)         : NEW relation: ir.filters
 base         / ir.embedded.actions      / groups_ids (many2many)        : NEW relation: res.groups
-base         / ir.embedded.actions      / name (char)                   : NEW
+base         / ir.embedded.actions      / name (char)                   : NEW translate
 base         / ir.embedded.actions      / parent_action_id (many2one)   : NEW relation: ir.actions.act_window, required
 base         / ir.embedded.actions      / parent_res_id (integer)       : NEW
 base         / ir.embedded.actions      / parent_res_model (char)       : NEW required
