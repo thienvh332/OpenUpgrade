@@ -2,11 +2,11 @@
 ---Fields in module 'website_sale'---
 website_sale / product.product          / ribbon_id (many2one)          : DEL relation: product.ribbon
 website_sale / product.product          / variant_ribbon_id (many2one)  : NEW relation: product.ribbon
-website_sale / product.public.category  / website_footer (html)         : NEW
+website_sale / product.public.category  / website_footer (html)         : NEW translate
 website_sale / product.ribbon           / bg_color (char)               : now required
 website_sale / product.ribbon           / html (html)                   : DEL required
 website_sale / product.ribbon           / html_class (char)             : DEL required
-website_sale / product.ribbon           / name (char)                   : NEW required
+website_sale / product.ribbon           / name (char)                   : NEW required, translate
 website_sale / product.ribbon           / position (selection)          : NEW required, selection_keys: ['left', 'right'], hasdefault: default
 website_sale / product.ribbon           / text_color (char)             : now required
 website_sale / sale.order               / access_point_address (json)   : DEL

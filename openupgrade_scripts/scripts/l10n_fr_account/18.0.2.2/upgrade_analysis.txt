@@ -1,4 +1,5 @@
 ---Models in module 'l10n_fr_account'---
+obsolete model account.fr.fec [transient]
 new model l10n_fr.fec.export.wizard [transient]
 ---Fields in module 'l10n_fr_account'---
 l10n_fr_account / res.company              / l10n_fr_rounding_difference_loss_account_id (many2one): previously in module l10n_fr
@@ -366,12 +367,17 @@ NEW account.report.line: l10n_fr_account.tax_report_tva_brute_import [renamed fr
 NEW account.report.line: l10n_fr_account.tax_report_tva_brute_metropo [renamed from l10n_fr module]
 NEW account.report.line: l10n_fr_account.tax_report_tva_brute_petrolier [renamed from l10n_fr module]
 NEW account.report.line: l10n_fr_account.tax_report_tva_deductible [renamed from l10n_fr module]
+DEL ir.actions.act_window: l10n_fr_fec.account_fr_fec_action
 NEW ir.config_parameter: l10n_fr_account.display_name_in_footer_param [renamed from l10n_fr module]
 NEW ir.model.access: l10n_fr_account.access_l10n_fr_fec_export_wizard
+DEL ir.model.access: l10n_fr_fec.access_account_fr_fec
+DEL ir.rule: l10n_fr_fec.account_fr_fec_rule (noupdate)
 NEW ir.ui.menu: l10n_fr_account.account_reports_fr_statements_menu [renamed from l10n_fr module]
+DEL ir.ui.menu: l10n_fr_fec.account_fr_fec_menu
 NEW ir.ui.view: l10n_fr_account.fec_export_wizard_view
 NEW ir.ui.view: l10n_fr_account.report_invoice_document
 NEW ir.ui.view: l10n_fr_account.res_partner_form_l10n_fr
+DEL ir.ui.view: l10n_fr_fec.account_fr_fec_view
 DEL ir.ui.view: l10n_fr_invoice_addr.report_invoice_document
 NEW res.bank: l10n_fr_account.bank_fr_aaadfrp1
 NEW res.bank: l10n_fr_account.bank_fr_aaagfrp1
