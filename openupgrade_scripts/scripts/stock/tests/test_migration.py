@@ -35,13 +35,15 @@ class TestStockMigration(TransactionCase):
         self.assertEqual(from_intermediate.location_dest_id, customer_location)
         self.assertEqual(from_intermediate.location_final_id, customer_location)
 
-        self.env["stock.rule"].search(
+        rules = self.env["stock.rule"].search(
             [
                 "|",
                 ("location_src_id", "=", intermediate_location.id),
                 ("location_dest_id", "=", intermediate_location.id),
             ]
-        ).location_dest_from_rule = True
+        )
+        for rule in rules:
+            self.assertEqual(rule.location_dest_from_rule, True)
 
         procurement_group = self.env["procurement.group"].create(
             {
@@ -54,7 +56,7 @@ class TestStockMigration(TransactionCase):
                     product_id=product,
                     product_qty=42,
                     product_uom=product.uom_id,
-                    location_id=self.env.ref("stock.stock_location_customers"),
+                    location_id=customer_location,
                     name="2 step procurement",
                     origin="/",
                     company_id=self.env.company,

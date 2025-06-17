@@ -76,24 +76,42 @@ def fill_stock_move_location_dest_id(env):
     openupgrade.logged_query(
         env.cr,
         """
-        UPDATE stock_move sm
-        SET location_final_id = sr.location_dest_id
-        FROM stock_rule sr
-        WHERE sm.rule_id = sr.id AND sr.location_dest_id IS NOT NULL
-            AND sr.location_dest_id != sm.location_final_id
-            AND sr.location_dest_id != sm.location_dest_id
-            AND sr.action IN ('pull', 'pull_push')
+        WITH sub AS (
+            UPDATE stock_move sm
+            SET location_final_id = sr.location_dest_id
+            FROM stock_rule sr
+            WHERE sm.rule_id = sr.id AND sr.location_dest_id IS NOT NULL
+                AND sr.location_dest_id != sm.location_final_id
+                AND sr.location_dest_id != sm.location_dest_id
+                AND sr.action IN ('pull', 'pull_push')
+            RETURNING rule_id
+        ), sub2 AS (
+            SELECT rule_id
+            FROM sub
+            GROUP BY rule_id
+        )
+        UPDATE stock_rule sr
+        SET location_dest_from_rule = TRUE
+        FROM sub2
+        WHERE sub2.rule_id = sr.id
         """,
     )
     openupgrade.logged_query(
         env.cr,
         """
+        WITH sub AS (
+            SELECT sm.rule_id
+            FROM stock_move sm
+            JOIN stock_move_move_rel rel ON
+                rel.move_orig_id = sm.id OR rel.move_dest_id = sm.id
+            JOIN stock_rule sr ON sm.rule_id = sr.id
+            WHERE sr.action IN ('pull', 'pull_push')
+            GROUP BY sm.rule_id
+        )
         UPDATE stock_rule sr
         SET location_dest_from_rule = TRUE
-        FROM stock_move sm
-        WHERE sm.rule_id = sr.id
-            AND sm.location_dest_id != sm.location_final_id
-            AND sr.action IN ('pull', 'pull_push')
+        FROM sub
+        WHERE sub.rule_id = sr.id
         """,
     )
 
