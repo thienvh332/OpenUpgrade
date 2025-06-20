@@ -100,6 +100,8 @@ merged_modules = {
     "theme_graphene_blog": "theme_graphene",
     # odoo/enterprise
     "hr_holidays_gantt_calendar": "hr_holidays_gantt",
+    # OCA/helpdesk
+    "helpdesk_mgmt_timesheet_time_control": "helpdesk_mgmt_timesheet",
     # OCA/hr -> OCA/payroll:
     "hr_period": "hr_payroll_period",
     # OCA/intrastat-extrastat
