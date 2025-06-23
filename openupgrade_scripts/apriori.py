@@ -28,6 +28,7 @@ merged_modules = {
     "l10n_in_tcs_tds": "l10n_in",
     "l10n_in_upi": "l10n_in",
     "l10n_latam_account_sequence": "l10n_latam_invoice_document",
+    "l10n_multilang": "account",
     "loyalty_delivery": "sale_loyalty_delivery",
     "pos_cache": "point_of_sale",
     "pos_daily_sales_reports": "point_of_sale",
