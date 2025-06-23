@@ -34,9 +34,12 @@ new model account.merge.wizard [module account]
 new model account.merge.wizard.line [module account]
 new model account.move.send.batch.wizard [module account]
 new model account.move.send.wizard [module account]
+new model account.payment.register.withholding.line [module l10n_account_withholding_tax]
+new model account.payment.withholding.line [module l10n_account_withholding_tax]
 new model account_peppol.service [module account_peppol]
 new model account_peppol.service.wizard [module account_peppol]
 new model account.secure.entries.wizard [module account]
+new model account.withholding.line [module l10n_account_withholding_tax]
 new model analytic.plan.fields.mixin [module analytic]
 new model auth.passkey.key [module auth_passkey]
 new model auth.passkey.key.create [module auth_passkey]
@@ -113,14 +116,14 @@ new model website.custom_blocked_third_party_domains [module website]
 new model website.page.properties [module website]
 new model website.page.properties.base [module website]
 ---Fields in module 'general'---
-# 13372 fields matched,
-# Direct match: 13272
+# 13376 fields matched,
+# Direct match: 13276
 # Found in other module with different type: 0
 # Found in other module: 92
 # Found with different type: 8
 # In obsolete models: 34
-# New columns: 1549
-# Not matched: 821
+# New columns: 1585
+# Not matched: 825
 ---XML records in module 'general'---
 ERROR: module not in list of installed modules:
 ---Models in module 'pos_mercury'---
@@ -153,6 +156,11 @@ DEL ir.ui.view: pos_mercury.res_config_settings_view_form_inherit_pos_mercury
 DEL ir.ui.view: pos_mercury.view_pos_mercury_configuration_form
 DEL ir.ui.view: pos_mercury.view_pos_mercury_configuration_tree
 DEL ir.ui.view: pos_mercury.view_pos_order
+ERROR: module not in list of installed modules:
+---Models in module 'project_stock'---
+---Fields in module 'project_stock'---
+---XML records in module 'project_stock'---
+---nothing has changed in this module--
 ERROR: module not in list of installed modules:
 ---Models in module 'spreadsheet_dashboard_purchase'---
 ---Fields in module 'spreadsheet_dashboard_purchase'---
