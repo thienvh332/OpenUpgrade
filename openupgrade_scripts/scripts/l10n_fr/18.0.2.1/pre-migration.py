@@ -678,10 +678,10 @@ _xmlids_renames = [
 @openupgrade.migrate()
 def migrate(env, version):
     openupgrade.rename_xmlids(env.cr, _xmlids_renames)
-    openupgrade.logged_query(  # just in case `account_fr_fec` was not installed
+    openupgrade.logged_query(  # to update 2 problematic tax accounts in l10n_fr_account
         env.cr,
         """
         UPDATE ir_module_module
-        SET state='to install'
+        SET state='to upgrade'
         WHERE name = 'l10n_fr_account' AND state='uninstalled'""",
     )
