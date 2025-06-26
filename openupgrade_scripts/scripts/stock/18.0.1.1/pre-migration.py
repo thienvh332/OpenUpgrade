@@ -128,6 +128,12 @@ def fill_stock_putaway_rule_sublocation(env):
 
 @openupgrade.migrate()
 def migrate(env, version=None):
+    if openupgrade.column_exists(env.cr, "product_template", "responsible_id"):
+        # in v12, this field was not company_dependent
+        openupgrade.rename_columns(
+            env.cr,
+            {"product_template": [("responsible_id", None)]},
+        )
     openupgrade.copy_columns(env.cr, _columns_copy)
     openupgrade.rename_fields(env, _field_renames)
     openupgrade.rename_xmlids(env.cr, _xmlid_renames)
