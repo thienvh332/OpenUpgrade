@@ -11,6 +11,67 @@ def _get_main_company(cr):
     return cr.fetchone()
 
 
+def product_template_responsible_id_to_company_dependent(env):
+    """Usually for such cases, openupgrade.convert_to_company_dependent() should
+    normally be used, but that function does not seem to support converting
+    a field to company-dependent without changing its name at the same time.
+    moreover, it stores boolean values even when they are false (what odoo
+    does not), and it creates values for all companies, which does not make
+    sense when a record is linked to a particular company only.
+    """
+    responsible_id_field_id = (env.ref("stock.field_product_template__responsible_id").id,)
+    # this many2one property stores its value in the value_reference column
+    openupgrade.logged_query(
+        env.cr,
+        """
+        insert into ir_property (
+            company_id, fields_id, value_reference, name, res_id, type
+        )
+        select
+            company_id,
+            %(field_id)s,
+            'res.users,' || responsible_id,
+            'responsible_id',
+            'product.template,' || id,
+            'many2one'
+        from product_template
+        where
+            company_id is not null
+            and responsible_id is not null
+        order by id
+        """,
+        {"field_id": responsible_id_field_id},
+    )
+    # for product.template records that are not linked to a company, create an
+    # ir.property record for each company.
+    openupgrade.logged_query(
+        env.cr,
+        """
+        insert into ir_property (
+            company_id,
+            fields_id,
+            value_reference,
+            name,
+            res_id,
+            type
+        )
+        select
+            rc.id,
+            %(field_id)s,
+            'res.users,' || pt.responsible_id,
+            'responsible_id',
+            'product.template,' || pt.id,
+            'many2one'
+        from product_template as pt
+        inner join res_company as rc on
+            pt.company_id is null and
+            pt.responsible_id is not null
+        order by pt.id, rc.id
+        """,
+        {"field_id": responsible_id_field_id},
+    )
+
+
 def fill_company_id(cr):
     # stock.move.line
     openupgrade.logged_query(
@@ -462,6 +523,7 @@ def update_sml_index(env):
 @openupgrade.migrate()
 def migrate(env, version):
     main_company = _get_main_company(env.cr)
+    product_template_responsible_id_to_company_dependent(env)
     fill_company_id(env.cr)
     fill_stock_putaway_rule_location_in_id(env)
     fill_propagate_date_minimum_delta(env)
