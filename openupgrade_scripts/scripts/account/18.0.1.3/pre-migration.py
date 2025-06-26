@@ -171,6 +171,22 @@ def fill_account_payment(env):
 
 @openupgrade.migrate()
 def migrate(env, version):
+    if openupgrade.column_exists(env.cr, "account_cash_rounding", "profit_account_id"):
+        # in v13, these fields were not company_dependent
+        field_names = ["profit_account_id"]
+        if openupgrade.column_exists(
+            env.cr, "account_cash_rounding", "loss_account_id"
+        ):
+            # loss_account_id came from pos_cash_rounding
+            field_names += ["loss_account_id"]
+        openupgrade.rename_columns(
+            env.cr,
+            {
+                "account_cash_rounding": [
+                    (field_name, None) for field_name in field_names
+                ]
+            },
+        )
     if openupgrade.column_exists(
         env.cr, "account_move", "l10n_dk_currency_rate_at_transaction"
     ):
