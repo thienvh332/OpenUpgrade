@@ -76,3 +76,14 @@ def migrate(env, version):
     _rename_fields(env)
     _convert_project_task_state(env)
     _set_default_analytic_plan_id(env)
+    openupgrade.set_xml_ids_noupdate_value(
+        env,
+        "project",
+        [
+            "project_project_stage_0",
+            "project_project_stage_1",
+            "project_project_stage_2",
+            "project_project_stage_3",
+        ],
+        True,
+    )
