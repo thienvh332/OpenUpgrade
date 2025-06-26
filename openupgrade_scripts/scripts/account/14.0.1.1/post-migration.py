@@ -842,8 +842,77 @@ def update_payment_state_partial(env):
     )
 
 
+def cash_rounding_fields_to_company_dependent(env):
+    """Usually for such cases, openupgrade.convert_to_company_dependent() should
+    normally be used, but that function does not seem to support converting
+    a field to company-dependent without changing its name at the same time.
+    moreover, it stores boolean values even when they are false (what odoo
+    does not), and it creates values for all companies, which does not make
+    sense when a record is linked to a particular company only.
+    """
+    field_names = ["profit_account_id"]
+    if openupgrade.column_exists(env.cr, "account_cash_rounding", "loss_account_id"):
+        # loss_account_id comes from pos_cash_rounding
+        field_names += ["loss_account_id"]
+    for field_name in field_names:
+        field_id = (env.ref(f"account.field_account_cash_rounding__{field_name}").id,)
+        # this many2one property stores its value in the value_reference column
+        openupgrade.logged_query(
+            env.cr,
+            f"""
+            insert into ir_property (
+                company_id, fields_id, value_reference, name, res_id, type
+            )
+            select
+                aa.company_id,
+                %(field_id)s,
+                'account.account,' || acr.{field_name},
+                '{field_name}',
+                'account.cash.rounding,' || acr.id,
+                'many2one'
+            from account_cash_rounding acr
+            join account_account aa ON acr.profit_account_id = aa.id
+            where
+                acr.{field_name} is not null
+            order by acr.id
+            """,
+            {"field_id": field_id},
+        )
+        if field_name == "loss_account_id":
+            # for account.cash.rounding records that are not linked to
+            # a company (i.e, to a profit_account_id), create an
+            # ir.property record for each company.
+            openupgrade.logged_query(
+                env.cr,
+                """
+                insert into ir_property (
+                    company_id,
+                    fields_id,
+                    value_reference,
+                    name,
+                    res_id,
+                    type
+                )
+                select
+                    rc.id,
+                    %(field_id)s,
+                    'account.account,' || acr.loss_account_id,
+                    'loss_account_id',
+                    'account.cash.rounding,' || acr.id,
+                    'many2one'
+                from account_cash_rounding acr
+                inner join res_company as rc on
+                    acr.profit_account_id is null
+                    and acr.loss_account_id is not null
+                order by acr.id, rc.id
+                """,
+                {"field_id": field_id},
+            )
+
+
 @openupgrade.migrate()
 def migrate(env, version):
+    cash_rounding_fields_to_company_dependent(env)
     fill_account_journal_posted_before(env)
     fill_code_prefix_end_field(env)
     fill_default_account_id_field(env)

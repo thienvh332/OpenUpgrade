@@ -113,7 +113,8 @@ account      / account.bank.statement.line / payment_ref (char)            : NEW
 account      / account.cash.rounding    / account_id (many2one)         : DEL relation: account.account
 account      / account.cash.rounding    / profit_account_id (many2one)  : NEW relation: account.account, hasdefault
 account      / account.cash.rounding    / loss_account_id (many2one)    : previously in module pos_cash_rounding
-# DONE: pre_migration: "profit_account_id" is a rename of the "account_id" field.
+# DONE: pre-migration: "profit_account_id" is a rename of the "account_id" field.
+# DONE: post-migration: transform both fields to company-dependent (filling ir_property)
 
 account      / account.chart.template   / account_journal_suspense_account_id (many2one): NEW relation: account.account.template
 # NOTHING TO DO: new features (filled in data on some localization modules)
