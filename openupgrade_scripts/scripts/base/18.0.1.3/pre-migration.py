@@ -10,6 +10,10 @@ _renamed_xmlids = [
         "base.lang_sr_RS",
         "base.lang_sr@Cyrl",
     ),
+    (
+        "spreadsheet_dashboard.dashboard_management",
+        "base.module_category_productivity_dashboard",
+    ),
 ]
 
 
