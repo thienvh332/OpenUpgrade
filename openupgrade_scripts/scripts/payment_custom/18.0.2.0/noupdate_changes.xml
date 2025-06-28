@@ -2,6 +2,6 @@
 <odoo>
   <record id="payment_method_wire_transfer" model="payment.method">
     <field name="support_refund">none</field>
-    <field name="active">False</field>
+    <!-- <field name="active">False</field> -->
   </record>
 </odoo>
