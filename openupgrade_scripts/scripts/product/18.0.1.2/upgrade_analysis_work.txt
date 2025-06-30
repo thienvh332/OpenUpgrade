@@ -1,12 +1,24 @@
 ---Models in module 'product'---
-new model product.combo
-new model product.combo.item
+new model product.combo (renamed from pos.combo in module point_of_sale)
+new model product.combo.item (renamed from pos.combo.line in module point_of_sale)
 # DONE: pre-migration: rename models and fields from point_of_sale models if installed
 
 new model update.product.attribute.value [transient]
 # NOTHING TO DO: new functionality
 
 ---Fields in module 'product'---
+point_of_sale / pos.combo.line           / combo_id (many2one)           : now required
+# DONE: post-migration: delete lines without combo_id
+
+point_of_sale / pos.combo.line           / combo_id (many2one)           : relation is now 'product.combo' ('pos.combo') [nothing to do]
+point_of_sale / product.product          / combo_ids (many2many)         : relation is now 'product.combo' ('pos.combo') [nothing to do]
+point_of_sale / product.template         / combo_ids (many2many)         : relation is now 'product.combo' ('pos.combo') [nothing to do]
+# NOTHING TO DO
+
+point_of_sale / product.template         / combo_ids (many2many)         : column2 is now 'product_combo_id' ('pos_combo_id') [pos_combo_product_template_rel]
+point_of_sale / product.template         / combo_ids (many2many)         : table is now 'product_combo_product_template_rel' ('pos_combo_product_template_rel')
+# DONE: pre-migration: renamed column and table
+
 product      / product.attribute        / active (boolean)              : NEW hasdefault: default
 # DONE: added in pre-migration
 
@@ -79,6 +91,11 @@ product      / product.template         / type (selection)              : select
 
 product      / res.partner              / specific_property_product_pricelist (many2one): NEW relation: product.pricelist
 # DONE: post-migration: convert from v17 property res.partner#property_product_pricelist
+
+sale_project / product.product          / service_tracking (selection)  : now required
+sale_project / product.template         / service_tracking (selection)  : now required
+sale_project / product.template         / service_tracking (selection)  : selection_keys is now '['no']' ('['no', 'project_only', 'task_global_project', 'task_in_project']')
+# DONE: pre-migration: add default 'no' if service_tracking is null
 
 ---XML records in module 'product'---
 NEW ir.actions.act_window: product.product_combo_action

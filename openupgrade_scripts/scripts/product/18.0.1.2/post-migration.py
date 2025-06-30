@@ -65,9 +65,14 @@ def res_partner_specific_property_product_pricelist(env):
     env["ir.default"].search([("field_id", "=", new_field.id)]).unlink()
 
 
+def delete_combo_items_without_combo(env):
+    env["product.combo.item"].search([("combo_id", "=", False)]).unlink()
+
+
 @openupgrade.migrate()
 def migrate(env, version):
     product_document_sequence(env)
     product_template_is_favorite(env)
     res_partner_specific_property_product_pricelist(env)
+    delete_combo_items_without_combo(env)
     openupgrade_180.convert_company_dependent(env, "product.product", "standard_price")

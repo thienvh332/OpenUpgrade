@@ -8,8 +8,8 @@ xmlid_renames = [
 ]
 
 column_creates = [
-    ("product.attribute", "active", "boolean", "TRUE"),
-    ("product.attribute.value", "active", "boolean", "TRUE"),
+    ("product.attribute", "active", "boolean", True),
+    ("product.attribute.value", "active", "boolean", True),
     ("product.pricelist.item", "display_applied_on", "char"),
     ("product.pricelist.item", "price_markup", "float"),
 ]
@@ -22,13 +22,21 @@ def rename_pos_models(env):
     """
     if not openupgrade.table_exists(env.cr, "pos_combo"):
         return
-
     openupgrade.rename_tables(
         env.cr,
         [
             ("pos_combo", "product_combo"),
             ("pos_combo_line", "product_combo_item"),
+            ("pos_combo_product_template_rel", "product_combo_product_template_rel"),
         ],
+    )
+    openupgrade.rename_columns(
+        env.cr,
+        {
+            "product_combo_product_template_rel": [
+                ("pos_combo_id", "product_combo_id"),
+            ]
+        },
     )
     openupgrade.rename_models(
         env.cr,
@@ -65,9 +73,23 @@ def fill_product_pricelist_item_columns(env):
     )
 
 
+def assure_service_tracking(env):
+    if not openupgrade.column_exists(env.cr, "product_template", "service_tracking"):
+        return
+    openupgrade.logged_query(
+        env.cr,
+        """
+        UPDATE product_template
+        SET service_tracking = 'no'
+        WHERE service_tracking IS NULL
+        """,
+    )
+
+
 @openupgrade.migrate()
 def migrate(env, version):
     openupgrade.rename_xmlids(env.cr, xmlid_renames)
     openupgrade.add_columns(env, column_creates)
     fill_product_pricelist_item_columns(env)
     rename_pos_models(env)
+    assure_service_tracking(env)
