@@ -14,7 +14,8 @@ XMLID_TO_RENAME = [
 ]
 
 
-@openupgrade.migrate()
-def migrate(env, version):
+def migrate(cr, version):
+    # Done without the openupgrade decorator to force its execution when this module
+    # is auto-installed as dependency of event_sale
     xmlid_renames = [(f"event_sale.{x}", f"event_product.{x}") for x in XMLID_TO_RENAME]
-    openupgrade.rename_xmlids(env.cr, xmlid_renames)
+    openupgrade.rename_xmlids(cr, xmlid_renames)
