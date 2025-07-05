@@ -169,6 +169,25 @@ def fill_account_payment(env):
     )
 
 
+def fill_statement_line_fields(env):
+    openupgrade.logged_query(
+        env.cr,
+        """
+        UPDATE account_bank_statement_line sl
+        SET company_id = mv.company_id
+        FROM account_move mv
+        WHERE sl.move_id = mv.id""",
+    )
+    openupgrade.logged_query(
+        env.cr,
+        """
+        UPDATE account_bank_statement_line sl
+        SET journal_id = mv.journal_id
+        FROM account_move mv
+        WHERE sl.move_id = mv.id""",
+    )
+
+
 @openupgrade.migrate()
 def migrate(env, version):
     if openupgrade.column_exists(env.cr, "account_cash_rounding", "profit_account_id"):
@@ -199,6 +218,7 @@ def migrate(env, version):
     adapt_account_move_sending_data(env)
     rename_selection_option(env)
     fill_account_payment(env)
+    fill_statement_line_fields(env)
     openupgrade.convert_field_to_html(
         env.cr,
         "account_tax",
