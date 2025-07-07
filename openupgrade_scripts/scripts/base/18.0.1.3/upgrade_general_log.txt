@@ -87,6 +87,9 @@ new model mail.scheduled.message [module mail]
 new model mrp.account.wip.accounting [module mrp_account]
 new model mrp.account.wip.accounting.line [module mrp_account]
 new model mrp.batch.produce [module mrp]
+new model myinvois.consolidate.invoice.wizard [module l10n_my_edi_pos]
+new model myinvois.document [module l10n_my_edi_pos]
+new model myinvois.document.status.update.wizard [module l10n_my_edi_pos]
 new model peppol.registration [module account_peppol]
 new model pos.bus.mixin [module point_of_sale]
 new model pos.load.mixin [module point_of_sale]
@@ -116,13 +119,13 @@ new model website.custom_blocked_third_party_domains [module website]
 new model website.page.properties [module website]
 new model website.page.properties.base [module website]
 ---Fields in module 'general'---
-# 13376 fields matched,
-# Direct match: 13276
+# 13396 fields matched,
+# Direct match: 13296
 # Found in other module with different type: 0
 # Found in other module: 92
 # Found with different type: 8
 # In obsolete models: 34
-# New columns: 1585
+# New columns: 1639
 # Not matched: 825
 ---XML records in module 'general'---
 ERROR: module not in list of installed modules:

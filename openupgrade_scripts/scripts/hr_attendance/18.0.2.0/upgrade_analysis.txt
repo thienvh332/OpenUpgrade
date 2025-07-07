@@ -1,8 +1,8 @@
 ---Models in module 'hr_attendance'---
 ---Fields in module 'hr_attendance'---
 hr_attendance / hr.attendance            / expected_hours (float)        : NEW isfunction: function, stored
-hr_attendance / hr.attendance            / in_mode (selection)           : selection_keys is now '['kiosk', 'manual', 'systray', 'technical']' ('['kiosk', 'manual', 'systray']')
-hr_attendance / hr.attendance            / out_mode (selection)          : selection_keys is now '['auto_check_out', 'kiosk', 'manual', 'systray', 'technical']' ('['kiosk', 'manual', 'systray']')
+hr_attendance / hr.attendance            / in_mode (selection)           : selection_keys added: [technical] (most likely nothing to do)
+hr_attendance / hr.attendance            / out_mode (selection)          : selection_keys added: [auto_check_out, technical] (most likely nothing to do)
 hr_attendance / hr.attendance            / overtime_status (selection)   : NEW selection_keys: ['approved', 'refused', 'to_approve'], hasdefault: compute
 hr_attendance / hr.attendance            / validated_overtime_hours (float): NEW hasdefault: compute
 hr_attendance / res.company              / absence_management (boolean)  : NEW hasdefault: default

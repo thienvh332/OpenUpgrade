@@ -13,7 +13,6 @@ l10n_id      / l10n_id.qris.transaction / qris_invoice_id (char)        : NEW
 l10n_id      / res.partner.bank         / l10n_id_qris_api_key (char)   : NEW
 l10n_id      / res.partner.bank         / l10n_id_qris_mid (char)       : NEW
 ---XML records in module 'l10n_id'---
-account.account.tag: l10n_id.ppn_tag (noupdate switched)
 NEW ir.actions.server: l10n_id.action_fetch_qris_status
 NEW ir.cron: l10n_id.qris_fetch_cron (noupdate)
 NEW ir.model.access: l10n_id.access_l10n_id_qris_transaction

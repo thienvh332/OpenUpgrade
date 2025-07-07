@@ -7,7 +7,6 @@ hr_expense   / hr.expense.sheet         / accounting_date (date)        : not a 
 hr_expense   / res.company              / expense_outstanding_account_id (many2one): NEW relation: account.account
 hr_expense   / res.company              / expense_product_id (many2one) : DEL relation: product.product
 ---XML records in module 'hr_expense'---
-DEL ir.rule: hr_expense.ir_rule_hr_expense_employee_not_draft (noupdate)
 NEW ir.ui.view: hr_expense.hr_expense_kanban_view_minimal
 DEL ir.ui.view: hr_expense.account_journal_dashboard_kanban_view_inherit_hr_expense
 NEW mail.message.subtype: hr_expense.mt_expense_entry_draft (noupdate)

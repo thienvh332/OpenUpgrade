@@ -2,9 +2,9 @@
 ---Fields in module 'website_sale_collect'---
 website_sale_collect / delivery.carrier         / warehouse_ids (many2many)     : NEW relation: stock.warehouse
 website_sale_collect / stock.warehouse          / opening_hours (many2one)      : NEW relation: resource.calendar
-website_sale_picking / delivery.carrier         / delivery_type (False)         : selection_keys is now '['base_on_rule', 'fixed', 'gelato', 'in_store']' ('['base_on_rule', 'fixed', 'onsite']')
+website_sale_picking / delivery.carrier         / delivery_type (False)         : selection_keys added: [gelato, in_store], removed: [onsite]
 website_sale_picking / delivery.carrier         / warehouse_id (many2one)       : DEL relation: stock.warehouse
-website_sale_picking / payment.provider         / custom_mode (False)           : selection_keys is now '['on_site', 'wire_transfer']' ('['onsite', 'wire_transfer']')
+website_sale_picking / payment.provider         / custom_mode (False)           : selection_keys added: [on_site], removed: [onsite]
 ---XML records in module 'website_sale_collect'---
 NEW delivery.carrier: website_sale_collect.carrier_pick_up_in_store (noupdate)
 DEL delivery.carrier: website_sale_picking.default_onsite_carrier (noupdate)

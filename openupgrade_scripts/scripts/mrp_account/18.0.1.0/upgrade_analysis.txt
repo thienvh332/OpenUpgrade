@@ -2,7 +2,7 @@
 new model mrp.account.wip.accounting [transient]
 new model mrp.account.wip.accounting.line [transient]
 ---Fields in module 'mrp_account'---
-mrp_account  / account.analytic.applicability / business_domain (False)       : selection_keys is now '['bill', 'expense', 'general', 'invoice', 'manufacturing_order', 'purchase_order', 'timesheet']' ('['bill', 'expense', 'general', 'invoice', 'manufacturing_order', 'purchase_order']')
+mrp_account  / account.analytic.applicability / business_domain (False)       : selection_keys added: [timesheet] (most likely nothing to do)
 mrp_account  / account.move             / wip_production_ids (many2many): NEW relation: mrp.production
 mrp_account  / mrp.bom                  / analytic_distribution_search (json): DEL stored: False
 mrp_account  / mrp.bom                  / analytic_distribution_text (text): DEL stored: False

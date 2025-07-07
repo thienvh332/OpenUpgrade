@@ -1,6 +1,6 @@
 ---Models in module 'payment_worldline'---
 ---Fields in module 'payment_worldline'---
-payment_sips / payment.provider         / code (False)                  : selection_keys is now '['adyen', 'aps', 'asiapay', 'authorize', 'buckaroo', 'custom', 'demo', 'flutterwave', 'mercado_pago', 'mollie', 'none', 'nuvei', 'paypal', 'razorpay', 'stripe', 'worldline']' ('['adyen', 'aps', 'asiapay', 'authorize', 'buckaroo', 'custom', 'demo', 'flutterwave', 'mercado_pago', 'mollie', 'none', 'paypal', 'razorpay', 'sips']')
+payment_sips / payment.provider         / code (False)                  : selection_keys added: [stripe, worldline, nuvei], removed: [sips]
 payment_sips / payment.provider         / sips_key_version (integer)    : DEL
 payment_sips / payment.provider         / sips_merchant_id (char)       : DEL
 payment_sips / payment.provider         / sips_prod_url (char)          : DEL

@@ -1,7 +1,7 @@
 ---Models in module 'sale'---
 ---Fields in module 'sale'---
 l10n_it_edi_doi / sale.order.line          / qty_invoiced_posted (float)   : not stored anymore
-sale         / account.analytic.applicability / business_domain (False)       : selection_keys is now '['bill', 'expense', 'general', 'invoice', 'manufacturing_order', 'purchase_order', 'sale_order', 'stock_picking', 'timesheet']' ('['bill', 'expense', 'general', 'invoice', 'manufacturing_order', 'purchase_order', 'sale_order']')
+sale         / account.analytic.applicability / business_domain (False)       : selection_keys added: [stock_picking, timesheet] (most likely nothing to do)
 sale         / account.move.line        / is_downpayment (boolean)      : module is now 'purchase' ('sale')
 sale         / product.category         / property_account_downpayment_categ_id (many2one): NEW relation: account.account
 sale         / product.document         / attached_on (selection)       : DEL selection_keys: ['quotation', 'sale_order']

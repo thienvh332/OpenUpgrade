@@ -24,7 +24,7 @@ account      / account.account          / display_mapping_tab (boolean) : NEW ha
 account      / account.account          / group_id (many2one)           : not stored anymore
 account      / account.account          / include_initial_balance (boolean): not stored anymore
 account      / account.account          / internal_group (selection)    : not stored anymore
-account      / account.account          / internal_group (selection)    : selection_keys is now '['asset', 'equity', 'expense', 'income', 'liability', 'off']' ('['asset', 'equity', 'expense', 'income', 'liability', 'off_balance']')
+account      / account.account          / internal_group (selection)    : selection_keys added: [off], removed: [off_balance]
 account      / account.account          / root_id (many2one)            : not stored anymore
 account      / account.bank.statement.line / company_id (many2one)         : is now stored
 account      / account.bank.statement.line / company_id (many2one)         : now required
@@ -37,7 +37,7 @@ account      / account.journal          / sale_activity_note (text)     : DEL
 account      / account.journal          / sale_activity_type_id (many2one): DEL relation: mail.activity.type
 account      / account.journal          / sale_activity_user_id (many2one): DEL relation: res.users
 account      / account.journal          / secure_sequence_id (many2one) : DEL relation: ir.sequence
-account      / account.journal          / type (selection)              : selection_keys is now '['bank', 'cash', 'credit', 'general', 'purchase', 'sale']' ('['bank', 'cash', 'general', 'purchase', 'sale']')
+account      / account.journal          / type (selection)              : selection_keys added: [credit] (most likely nothing to do)
 account      / account.lock_exception   / active (boolean)              : NEW hasdefault: default
 account      / account.lock_exception   / company_id (many2one)         : NEW relation: res.company, required
 account      / account.lock_exception   / company_lock_date (date)      : NEW
@@ -56,7 +56,7 @@ account      / account.move             / made_sequence_gap (boolean)   : NEW is
 account      / account.move             / matched_payment_ids (many2many): NEW relation: account.payment
 account      / account.move             / origin_payment_id (many2one)  : NEW relation: account.payment
 account      / account.move             / payment_id (many2one)         : DEL relation: account.payment
-account      / account.move             / payment_state (selection)     : selection_keys is now '['blocked', 'in_payment', 'invoicing_legacy', 'not_paid', 'paid', 'partial', 'reversed']' ('['in_payment', 'invoicing_legacy', 'not_paid', 'paid', 'partial', 'reversed']')
+account      / account.move             / payment_state (selection)     : selection_keys added: [blocked] (most likely nothing to do)
 account      / account.move             / preferred_payment_method_line_id (many2one): NEW relation: account.payment.method.line, hasdefault: compute
 account      / account.move             / reversal_move_id (one2many)   : DEL relation: account.move
 account      / account.move             / reversal_move_ids (one2many)  : NEW relation: account.move
@@ -89,14 +89,14 @@ account      / account.payment          / name (char)                   : now a 
 account      / account.payment          / state (selection)             : is now stored
 account      / account.payment          / state (selection)             : not related anymore
 account      / account.payment          / state (selection)             : selection_keys is now '['canceled', 'draft', 'in_process', 'paid', 'rejected']' ('function')
-account      / account.payment.term.line / delay_type (selection)        : selection_keys is now '['days_after', 'days_after_end_of_month', 'days_after_end_of_next_month', 'days_end_of_month_on_the']' ('['days_after', 'days_after_end_of_month', 'days_after_end_of_next_month']')
+account      / account.payment.term.line / delay_type (selection)        : selection_keys added: [days_end_of_month_on_the] (most likely nothing to do)
 account      / account.reconcile.model  / counterpart_type (selection)  : NEW selection_keys: ['general', 'purchase', 'sale'], hasdefault: default
 account      / account.reconcile.model.line / analytic_distribution_search (json): DEL stored: False
 account      / account.report           / currency_translation (selection): NEW selection_keys: ['cta', 'current'], hasdefault: compute
-account      / account.report           / default_opening_date_filter (selection): selection_keys is now '['previous_month', 'previous_quarter', 'previous_tax_period', 'previous_year', 'this_month', 'this_quarter', 'this_tax_period', 'this_year', 'today']' ('['last_month', 'last_quarter', 'last_tax_period', 'last_year', 'this_month', 'this_quarter', 'this_tax_period', 'this_year', 'today']')
+account      / account.report           / default_opening_date_filter (selection): selection_keys added: [previous_month, previous_year, previous_tax_period, previous_quarter], removed: [last_month, last_tax_period, last_year, last_quarter]
 account      / account.report           / filter_budgets (boolean)      : NEW hasdefault: compute
 account      / account.report           / integer_rounding (selection)  : NEW selection_keys: ['DOWN', 'HALF-UP', 'UP']
-account      / account.report.expression / date_scope (selection)        : selection_keys is now '['from_beginning', 'from_fiscalyear', 'previous_tax_period', 'strict_range', 'to_beginning_of_fiscalyear', 'to_beginning_of_period']' ('['from_beginning', 'from_fiscalyear', 'normal', 'previous_tax_period', 'strict_range', 'to_beginning_of_fiscalyear', 'to_beginning_of_period']')
+account      / account.report.expression / date_scope (selection)        : selection_keys removed: [normal]
 account      / account.report.line      / horizontal_split_side (selection): NEW selection_keys: ['left', 'right'], hasdefault: compute
 account      / account.tax              / description (char)            : type is now 'html' ('char')
 account      / account.tax              / invoice_legal_notes (html)    : NEW

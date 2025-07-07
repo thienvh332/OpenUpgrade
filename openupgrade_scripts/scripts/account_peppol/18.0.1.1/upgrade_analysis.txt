@@ -3,8 +3,8 @@ new model account_peppol.service [transient]
 new model account_peppol.service.wizard [transient]
 new model peppol.registration [transient]
 ---Fields in module 'account_peppol'---
-account_peppol / account.move             / peppol_move_state (selection) : selection_keys is now '['done', 'error', 'processing', 'ready', 'skipped', 'to_send']' ('['canceled', 'done', 'error', 'processing', 'ready', 'skipped', 'to_send']')
-account_peppol / res.company              / account_peppol_proxy_state (selection): selection_keys is now '['in_verification', 'not_registered', 'receiver', 'rejected', 'sender', 'smp_registration']' ('['active', 'canceled', 'not_registered', 'not_verified', 'pending', 'rejected', 'sent_verification']')
+account_peppol / account.move             / peppol_move_state (selection) : selection_keys removed: [canceled]
+account_peppol / res.company              / account_peppol_proxy_state (selection): selection_keys added: [receiver, sender, in_verification, smp_registration], removed: [canceled, sent_verification, pending, active, not_verified]
 account_peppol / res.company              / is_account_peppol_participant (boolean): DEL
 account_peppol / res.partner              / account_peppol_is_endpoint_valid (boolean): DEL
 account_peppol / res.partner              / account_peppol_validity_last_check (date): DEL
