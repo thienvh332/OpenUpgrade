@@ -19,9 +19,6 @@ hr_expense   / res.company              / expense_product_id (many2one) : DEL re
 # NOTHING TO DO: Now the expense producto for the uploaded files is selected from the generic or the first one found.
 
 ---XML records in module 'hr_expense'---
-DEL ir.rule: hr_expense.ir_rule_hr_expense_employee_not_draft (noupdate)
-# DONE: post-migration: Deleted safely.
-
 NEW ir.ui.view: hr_expense.hr_expense_kanban_view_minimal
 DEL ir.ui.view: hr_expense.account_journal_dashboard_kanban_view_inherit_hr_expense
 NEW web_tour.tour: hr_expense.hr_expense_tour
