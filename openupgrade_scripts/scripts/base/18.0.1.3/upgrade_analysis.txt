@@ -9,7 +9,7 @@ new model res.device.log
 ---Fields in module 'base'---
 base         / ir.actions.act_url       / path (char)                   : NEW
 base         / ir.actions.act_window    / path (char)                   : NEW
-base         / ir.actions.act_window.view / view_mode (selection)         : selection_keys is now '['calendar', 'form', 'graph', 'kanban', 'list', 'pivot']' ('['calendar', 'form', 'gantt', 'graph', 'kanban', 'pivot', 'tree']')
+base         / ir.actions.act_window.view / view_mode (selection)         : selection_keys added: [list], removed: [tree, gantt]
 base         / ir.actions.act_window_close / path (char)                   : NEW
 base         / ir.actions.actions       / path (char)                   : NEW
 base         / ir.actions.client        / path (char)                   : NEW
@@ -57,11 +57,11 @@ base         / ir.property              / value_float (float)           : DEL
 base         / ir.property              / value_integer (integer)       : DEL
 base         / ir.property              / value_reference (char)        : DEL
 base         / ir.property              / value_text (text)             : DEL
-base         / ir.ui.view               / type (selection)              : selection_keys is now '['calendar', 'form', 'graph', 'kanban', 'list', 'pivot', 'qweb', 'search']' ('['calendar', 'form', 'gantt', 'graph', 'kanban', 'pivot', 'qweb', 'search', 'tree']')
+base         / ir.ui.view               / type (selection)              : selection_keys added: [list], removed: [tree, gantt]
 base         / report.paperformat       / css_margins (boolean)         : NEW hasdefault: default
 base         / res.company              / country_code (char)           : previously in module account
-base         / res.company              / font (selection)              : selection_keys is now '['Fira_Mono', 'Lato', 'Montserrat', 'Open_Sans', 'Oswald', 'Raleway', 'Roboto', 'Tajawal']' ('['Lato', 'Montserrat', 'Open_Sans', 'Oswald', 'Raleway', 'Roboto', 'Tajawal']')
-base         / res.company              / layout_background (selection) : selection_keys is now '['Blank', 'Custom', 'Demo logo']' ('['Blank', 'Custom', 'Geometric']')
+base         / res.company              / font (selection)              : selection_keys added: [Fira_Mono] (most likely nothing to do)
+base         / res.company              / layout_background (selection) : selection_keys added: [Demo logo], removed: [Geometric]
 base         / res.currency             / iso_numeric (integer)         : NEW
 base         / res.device.log           / browser (char)                : NEW
 base         / res.device.log           / city (char)                   : NEW

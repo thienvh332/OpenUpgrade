@@ -1,9 +1,9 @@
 ---Models in module 'payment'---
 ---Fields in module 'payment'---
 payment      / payment.method           / support_refund (selection)    : now required
-payment      / payment.method           / support_refund (selection)    : selection_keys is now '['full_only', 'none', 'partial']' ('['full_only', 'partial']')
+payment      / payment.method           / support_refund (selection)    : selection_keys added: [none] (most likely nothing to do)
 payment      / payment.provider         / module_state (selection)      : not stored anymore
-payment      / payment.provider         / support_refund (selection)    : selection_keys is now '['full_only', 'none', 'partial']' ('['full_only', 'partial']')
+payment      / payment.provider         / support_refund (selection)    : selection_keys added: [none] (most likely nothing to do)
 payment      / payment.transaction      / callback_hash (char)          : DEL
 payment      / payment.transaction      / callback_is_done (boolean)    : DEL
 payment      / payment.transaction      / callback_method (char)        : DEL

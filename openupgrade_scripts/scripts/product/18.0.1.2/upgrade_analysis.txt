@@ -48,11 +48,11 @@ product      / product.template         / is_favorite (boolean)         : NEW
 product      / product.template         / priority (selection)          : DEL selection_keys: ['0', '1']
 product      / product.template         / service_tracking (selection)  : previously in module sale_project
 product      / product.template         / type (selection)              : now required
-product      / product.template         / type (selection)              : selection_keys is now '['combo', 'consu', 'service']' ('['consu', 'service']')
+product      / product.template         / type (selection)              : selection_keys added: [combo] (most likely nothing to do)
 product      / res.partner              / specific_property_product_pricelist (many2one): NEW relation: product.pricelist
 sale_project / product.product          / service_tracking (selection)  : now required
 sale_project / product.template         / service_tracking (selection)  : now required
-sale_project / product.template         / service_tracking (selection)  : selection_keys is now '['no']' ('['no', 'project_only', 'task_global_project', 'task_in_project']')
+sale_project / product.template         / service_tracking (selection)  : selection_keys removed: [task_global_project, task_in_project, project_only]
 ---XML records in module 'product'---
 NEW ir.actions.act_window: product.product_combo_action
 NEW ir.model.access: product.access_product_combo_item_manager
