@@ -12,6 +12,3 @@ def migrate(env, version):
         "mt_expense_approved",
     ]
     openupgrade.delete_record_translations(env.cr, "hr_expense", xml_ids)
-    openupgrade.delete_records_safely_by_xml_id(
-        env, ["hr_expense.ir_rule_hr_expense_employee_not_draft"]
-    )
