@@ -22,6 +22,8 @@ renamed_modules = {
     # OCA/project
     "project_stock": "project_task_stock",
     "project_stock_product_set": "project_task_stock_product_set",
+    # OCA/sale-promotion
+    "coupon_chatter": "loyalty_program_chatter",
     # OCA/sale-workflow
     "product_supplierinfo_for_customer_sale": "product_customerinfo_sale",
     "sale_product_set_sale_by_packaging": "product_set_sell_only_by_packaging",
