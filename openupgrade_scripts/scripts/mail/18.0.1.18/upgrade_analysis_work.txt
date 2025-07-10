@@ -160,8 +160,9 @@ NEW ir.ui.view: mail.mail_scheduled_message_view_form
 DEL ir.ui.view: mail.mail_shortcode_view_form
 DEL ir.ui.view: mail.mail_shortcode_view_search
 DEL ir.ui.view: mail.mail_shortcode_view_tree
-NEW mail.canned.response: mail.mail_canned_response_data_hello (noupdate)
 NEW res.groups: mail.group_mail_canned_response_admin (noupdate)
 NEW web_tour.tour: mail.discuss_channel_tour
-
 # NOTHING TO DO
+
+NEW mail.canned.response: mail.mail_canned_response_data_hello (noupdate)
+# DONE: pre-migration: renamed from im_livechat.mail_shortcode_data_hello
