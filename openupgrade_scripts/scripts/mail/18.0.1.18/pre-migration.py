@@ -25,3 +25,12 @@ def migrate(env, version):
     openupgrade.rename_models(env.cr, model_renames)
     openupgrade.rename_tables(env.cr, table_renames)
     openupgrade.rename_fields(env, field_renames)
+    openupgrade.rename_xmlids(
+        env.cr,
+        [
+            (
+                "im_livechat.mail_shortcode_data_hello",
+                "mail.mail_canned_response_data_hello",
+            )
+        ],
+    )
