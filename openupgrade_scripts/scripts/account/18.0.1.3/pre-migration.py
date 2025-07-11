@@ -206,6 +206,12 @@ def migrate(env, version):
                 ]
             },
         )
+    if openupgrade.column_exists(env.cr, "res_partner", "credit_limit"):
+        # in v15, this field was not company_dependent
+        openupgrade.rename_columns(
+            env.cr,
+            {"res_partner": [("credit_limit", None)]},
+        )
     if openupgrade.column_exists(
         env.cr, "account_move", "l10n_dk_currency_rate_at_transaction"
     ):
