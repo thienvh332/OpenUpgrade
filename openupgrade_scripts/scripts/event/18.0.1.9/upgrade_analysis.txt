@@ -3,7 +3,7 @@ model event.question (moved from website_event)
 model event.question.answer (moved from website_event)
 model event.registration.answer (moved from website_event)
 ---Fields in module 'event'---
-event        / event.event              / badge_format (selection)      : selection_keys added: [96x82, 96x134] (most likely nothing to do)
+event        / event.event              / badge_format (selection)      : selection_keys added: [96x134, 96x82] (most likely nothing to do)
 event        / event.event              / general_question_ids (one2many): previously in module website_event
 event        / event.event              / question_ids (one2many)       : previously in module website_event
 event        / event.event              / specific_question_ids (one2many): previously in module website_event

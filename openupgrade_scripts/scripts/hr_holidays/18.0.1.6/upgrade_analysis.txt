@@ -3,7 +3,7 @@ new model hr.leave.allocation.generate.multi.wizard [transient]
 new model hr.leave.generate.multi.wizard [transient]
 ---Fields in module 'hr_holidays'---
 hr_holidays  / hr.employee              / current_leave_state (selection): selection_keys removed: [draft]
-hr_holidays  / hr.employee              / hr_icon_display (False)       : selection_keys added: [presence_out_of_working_hour, presence_archive], removed: [presence_absent_active, presence_to_define]
+hr_holidays  / hr.employee              / hr_icon_display (False)       : selection_keys added: [presence_archive, presence_out_of_working_hour], removed: [presence_absent_active, presence_to_define]
 hr_holidays  / hr.leave                 / active (boolean)              : DEL
 hr_holidays  / hr.leave                 / category_id (many2one)        : DEL relation: hr.employee.category
 hr_holidays  / hr.leave                 / employee_id (many2one)        : now required
@@ -46,7 +46,7 @@ hr_holidays  / hr.leave.allocation      / private_name (char)           : DEL
 hr_holidays  / hr.leave.allocation      / second_approver_id (many2one) : NEW relation: hr.employee
 hr_holidays  / hr.leave.allocation      / state (selection)             : selection_keys added: [validate1] (most likely nothing to do)
 hr_holidays  / hr.leave.allocation      / yearly_accrued_amount (float) : NEW
-hr_holidays  / hr.leave.type            / allocation_validation_type (selection): selection_keys added: [hr, manager, both, no_validation], removed: [no, officer]
+hr_holidays  / hr.leave.type            / allocation_validation_type (selection): selection_keys added: [both, hr, manager, no_validation], removed: [no, officer]
 hr_holidays  / hr.leave.type            / include_public_holidays_in_duration (boolean): NEW hasdefault: default
 hr_holidays  / hr.leave.type            / show_on_dashboard (boolean)   : NEW hasdefault: default
 ---XML records in module 'hr_holidays'---
