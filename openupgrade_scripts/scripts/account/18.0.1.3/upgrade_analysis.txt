@@ -49,7 +49,7 @@ account      / account.lock_exception   / user_id (many2one)            : NEW re
 account      / account.move             / amount_untaxed_in_currency_signed (float): NEW isfunction: function, stored
 account      / account.move             / audit_trail_message_ids (one2many): NEW relation: mail.message
 account      / account.move             / checked (boolean)             : NEW
-account      / account.move             / invoice_currency_rate (float) : NEW isfunction: function, stored
+account      / account.move             / invoice_currency_rate (float) : NEW hasdefault: compute
 account      / account.move             / is_manually_modified (boolean): NEW
 account      / account.move             / journal_group_id (many2one)   : NEW relation: account.journal.group, stored: False
 account      / account.move             / made_sequence_gap (boolean)   : NEW isfunction: function, stored
@@ -93,7 +93,7 @@ account      / account.payment.term.line / delay_type (selection)        : selec
 account      / account.reconcile.model  / counterpart_type (selection)  : NEW selection_keys: ['general', 'purchase', 'sale'], hasdefault: default
 account      / account.reconcile.model.line / analytic_distribution_search (json): DEL stored: False
 account      / account.report           / currency_translation (selection): NEW selection_keys: ['cta', 'current'], hasdefault: compute
-account      / account.report           / default_opening_date_filter (selection): selection_keys added: [previous_month, previous_year, previous_tax_period, previous_quarter], removed: [last_month, last_tax_period, last_year, last_quarter]
+account      / account.report           / default_opening_date_filter (selection): selection_keys added: [previous_month, previous_quarter, previous_tax_period, previous_year], removed: [last_month, last_quarter, last_tax_period, last_year]
 account      / account.report           / filter_budgets (boolean)      : NEW hasdefault: compute
 account      / account.report           / integer_rounding (selection)  : NEW selection_keys: ['DOWN', 'HALF-UP', 'UP']
 account      / account.report.expression / date_scope (selection)        : selection_keys removed: [normal]

@@ -52,7 +52,7 @@ product      / product.template         / type (selection)              : select
 product      / res.partner              / specific_property_product_pricelist (many2one): NEW relation: product.pricelist
 sale_project / product.product          / service_tracking (selection)  : now required
 sale_project / product.template         / service_tracking (selection)  : now required
-sale_project / product.template         / service_tracking (selection)  : selection_keys removed: [task_global_project, task_in_project, project_only]
+sale_project / product.template         / service_tracking (selection)  : selection_keys removed: [project_only, task_global_project, task_in_project]
 ---XML records in module 'product'---
 NEW ir.actions.act_window: product.product_combo_action
 NEW ir.model.access: product.access_product_combo_item_manager

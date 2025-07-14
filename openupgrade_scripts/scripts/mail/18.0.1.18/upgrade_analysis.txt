@@ -17,8 +17,8 @@ mail         / discuss.channel.member   / is_pinned (boolean)           : not st
 mail         / discuss.channel.member   / is_pinned (boolean)           : now a function
 mail         / discuss.channel.member   / new_message_separator (integer): NEW required, hasdefault: default
 mail         / discuss.channel.member   / unpin_dt (datetime)           : NEW
-mail         / ir.actions.act_window.view / view_mode (False)             : selection_keys added: [list], removed: [tree, gantt]
-mail         / ir.ui.view               / type (False)                  : selection_keys added: [list], removed: [tree, gantt]
+mail         / ir.actions.act_window.view / view_mode (False)             : selection_keys added: [list], removed: [gantt, tree]
+mail         / ir.ui.view               / type (False)                  : selection_keys added: [list], removed: [gantt, tree]
 mail         / mail.activity            / user_tz (selection)           : NEW selection_keys: function, isrelated: related, stored
 mail         / mail.activity.plan.template / delay_count (integer)         : NEW hasdefault: default
 mail         / mail.activity.plan.template / delay_from (selection)        : NEW required, selection_keys: ['after_plan_date', 'before_plan_date'], hasdefault: default
