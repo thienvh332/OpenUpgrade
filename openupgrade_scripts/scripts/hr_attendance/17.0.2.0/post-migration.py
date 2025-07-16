@@ -67,6 +67,16 @@ def hr_attendance_menus(env):
             ]
         }
     )
+    openupgrade.rename_xmlids(
+        env.cr,
+        [
+            (
+                "hr_attendance.group_hr_attendance",
+                "hr_attendance.group_hr_attendance_own_reader",
+            ),
+        ],
+        allow_merge=True,
+    )
     # Remove the groups of 16.0 from the Attendances > Kiosk Mode menu
     env.ref("hr_attendance.menu_hr_attendance_kiosk_no_user_mode").write(
         {
@@ -74,6 +84,16 @@ def hr_attendance_menus(env):
                 Command.unlink(group_hr_attendance_kiosk.id),
             ]
         }
+    )
+    openupgrade.rename_xmlids(
+        env.cr,
+        [
+            (
+                "hr_attendance.group_hr_attendance_kiosk",
+                "hr_attendance.group_hr_attendance_own_reader",
+            ),
+        ],
+        allow_merge=True,
     )
 
 
