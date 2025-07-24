@@ -158,3 +158,24 @@ merged_models = {
     "gift.card": "loyalty.card",
     # OCA/...
 }
+
+# List of OCA modules that were moved to other repositories .
+# Format: {"module_name": ("old_repo_name", "new_repo_name")}
+# Note: The key is the module_name for easier reference
+moved_modules = {
+    # OCA/edi
+    "edi_account_oca": ("edi", "edi-framework"),
+    "edi_backend_partner_oca": ("edi", "edi-framework"),
+    "edi_endpoint_oca": ("edi", "edi-framework"),
+    "edi_exchange_template_oca": ("edi", "edi-framework"),
+    "edi_oca": ("edi", "edi-framework"),
+    "edi_party_data_oca": ("edi", "edi-framework"),
+    "edi_sale_oca": ("edi", "edi-framework"),
+    "edi_stock_oca": ("edi", "edi-framework"),
+    "edi_storage_oca": ("edi", "edi-framework"),
+    "edi_ubl_oca": ("edi", "edi-framework"),
+    "edi_webservice_oca": ("edi", "edi-framework"),
+    "edi_xml_oca": ("edi", "edi-framework"),
+    # OCA/sale-workflow
+    "sale_rental": ("sale-workflow", "vertical-rental"),
+}
